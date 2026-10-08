@@ -1,0 +1,258 @@
+{
+  "categories": [
+    { "id": "web", "en": "Web, SEO and analytics", "ja": "Web・SEO・アクセス解析" },
+    { "id": "ai", "en": "AI and LLM", "ja": "AI・LLM" },
+    { "id": "dev", "en": "Developer tools", "ja": "開発ツール" },
+    { "id": "security", "en": "Security, email and DNS", "ja": "セキュリティ・メール・DNS" },
+    { "id": "media", "en": "Images, video and publishing", "ja": "画像・動画・出版" },
+    { "id": "productivity", "en": "Productivity", "ja": "仕事効率化" },
+    { "id": "fun", "en": "Fun and learning", "ja": "遊び・学び" }
+  ],
+  "repos": [
+    {
+      "name": "sitepulse", "category": "web", "kind": "CLI", "language": "TypeScript", "released": "2026-10-07",
+      "en": "GA4 and Google Search Console side by side, one row per hostname: users, sessions, pageviews, clicks, impressions, CTR and position.",
+      "ja": "GA4とGoogle Search Consoleの数値をホスト名ごとに1行で横並び表示。ユーザー数・セッション・PVとクリック・表示回数・CTR・掲載順位を同じ期間で比べられます。"
+    },
+    {
+      "name": "gsc", "category": "web", "kind": "CLI", "language": "TypeScript", "released": "2026-10-04",
+      "en": "Check Google Search Console clicks, impressions, CTR and position from the terminal, for one site or every site at once.",
+      "ja": "Google Search Consoleのクリック・表示回数・CTR・掲載順位をターミナルで確認。1サイトの詳細も全サイトの一覧も出せます。"
+    },
+    {
+      "name": "ga4", "category": "web", "kind": "CLI", "language": "TypeScript", "released": "2026-06-21",
+      "en": "Check a GA4 property's recent traffic (users, sessions, pageviews) from the terminal.",
+      "ja": "GA4プロパティの直近のユーザー数・セッション・PVをターミナルで確認。"
+    },
+    {
+      "name": "cruxpeek", "category": "web", "kind": "CLI", "language": "Go", "released": "2026-07-24",
+      "en": "Real-user Core Web Vitals from the Chrome UX Report: p75 LCP, INP and CLS graded against the official thresholds, with history sparklines.",
+      "ja": "Chrome UX Reportから実ユーザーのCore Web Vitals(LCP・INP・CLSのp75)を取得し、公式のしきい値で判定。推移のスパークラインも表示。"
+    },
+    {
+      "name": "httppeek", "category": "web", "kind": "CLI", "language": "Go", "released": "2026-07-19",
+      "en": "A URL's HTTP behavior in one command: redirect chain, caching and security headers, TLS certificate and per-phase timing.",
+      "ja": "URLのリダイレクト経路・キャッシュとセキュリティヘッダ・TLS証明書・フェーズ別の所要時間を1コマンドで確認。"
+    },
+    {
+      "name": "baselinefit", "category": "web", "kind": "CLI", "language": "Rust", "released": "2026-08-12",
+      "en": "Audit CSS against Web Platform Baseline both ways: features not yet safe for your target, and prefixes, @supports guards and polyfills you can now delete.",
+      "ja": "CSSをWeb Platform Baselineで双方向に監査。対象ブラウザでまだ危ない機能と、もう消せるベンダープレフィックス・@supports・ポリフィルを洗い出します。"
+    },
+    {
+      "name": "gistpeek", "category": "web", "kind": "Chrome extension", "language": "TypeScript", "released": "2026-08-31",
+      "en": "A Chrome side panel that summarizes the page with the browser's on-device AI and checks whether the point you meant to make survives. Nothing leaves the device.",
+      "ja": "Chrome内蔵のオンデバイスAIでページを要約し、伝えたい結論がAIに伝わるかを判定するサイドパネル。データは端末の外に出ません。"
+    },
+    {
+      "name": "imagine", "category": "ai", "kind": "CLI", "language": "TypeScript", "released": "2026-06-13",
+      "en": "Generate images with several AI providers (OpenAI, Gemini, fal) from one prompt.",
+      "ja": "1つのプロンプトで複数のAI(OpenAI・Gemini・fal)に画像を同時生成させるCLI。"
+    },
+    {
+      "name": "repotome", "category": "ai", "kind": "CLI", "language": "Rust", "released": "2026-06-14",
+      "en": "Pack a git repository into a single text document for LLMs.",
+      "ja": "gitリポジトリをLLMに渡しやすい1つのテキストにまとめます。"
+    },
+    {
+      "name": "ytsum", "category": "ai", "kind": "CLI", "language": "TypeScript", "released": "2026-06-15",
+      "en": "Fetch YouTube transcripts (via yt-dlp) as clean, LLM-ready text.",
+      "ja": "YouTubeの字幕をyt-dlp経由で取得し、LLMに渡しやすいきれいなテキストにします。"
+    },
+    {
+      "name": "llmcost", "category": "ai", "kind": "CLI", "language": "Python", "released": "2026-07-19",
+      "en": "Estimate and compare LLM API costs across OpenAI, Anthropic, Google, xAI and DeepSeek, offline from a versioned price table.",
+      "ja": "OpenAI・Anthropic・Google・xAI・DeepSeekのLLM API料金を見積もり・比較。バージョン付きの料金表でオフライン計算します。"
+    },
+    {
+      "name": "mcppeek", "category": "ai", "kind": "CLI", "language": "TypeScript", "released": "2026-07-09",
+      "en": "Inspect a Model Context Protocol server: list its tools, resources and prompts, lint their schemas, and call a tool.",
+      "ja": "MCPサーバーのツール・リソース・プロンプトを一覧し、スキーマを検査し、ツールを呼び出せます。"
+    },
+    {
+      "name": "mcpfit", "category": "ai", "kind": "CLI", "language": "Go", "released": "2026-07-24",
+      "en": "Audit an MCP server against the stateless MCP spec: session reliance, legacy tool schemas, deprecated methods and missing cache hints.",
+      "ja": "MCPサーバーがステートレス版の仕様に対応できているかを監査。セッション依存・古いスキーマ・非推奨メソッド・キャッシュヒント不足を指摘します。"
+    },
+    {
+      "name": "agentsdoc", "category": "ai", "kind": "CLI", "language": "Rust", "released": "2026-07-29",
+      "en": "Audit AI agent instruction files (AGENTS.md, CLAUDE.md, Cursor rules, Copilot instructions) for portability across tools.",
+      "ja": "AGENTS.md・CLAUDE.md・Cursorのルール・Copilotの指示ファイルを監査し、ツールをまたいで正しく読まれるかを確認します。"
+    },
+    {
+      "name": "git3ready", "category": "dev", "kind": "CLI", "language": "Rust", "released": "2026-09-23",
+      "en": "Find the scripts, hooks, tests and CI steps that assume Git 2.x defaults before Git 3.0 changes them, and rehearse the new defaults today.",
+      "ja": "Git 3.0の既定値変更で壊れるスクリプト・フック・テスト・CIを検出し、新しい既定値でのリハーサル実行もできます。"
+    },
+    {
+      "name": "sunsetscan", "category": "dev", "kind": "CLI", "language": "Rust", "released": "2026-08-11",
+      "en": "Find code that depends on APIs with announced shutdown dates, with days remaining and the official migration path.",
+      "ja": "提供終了日が発表済みのAPIに依存するコードを検出し、残り日数と公式の移行先を示します。"
+    },
+    {
+      "name": "readyproof", "category": "dev", "kind": "CLI", "language": "Rust", "released": "2026-07-26",
+      "en": "Audit an open source repository for the security practices adopters ask about: SECURITY.md, license, lockfiles, CI tests, pinned Actions and more.",
+      "ja": "OSSリポジトリを、利用企業が確認するセキュリティ項目(SECURITY.md・ライセンス・ロックファイル・CIテスト・Actionsの固定など)で監査します。"
+    },
+    {
+      "name": "whyignore", "category": "dev", "kind": "CLI", "language": "Rust", "released": "2026-06-23",
+      "en": "Explain which .gitignore rule matches a path, without calling Git.",
+      "ja": "あるパスにどの.gitignoreルールが効いているかを、Gitを呼ばずに説明します。"
+    },
+    {
+      "name": "cronpeek", "category": "dev", "kind": "CLI", "language": "TypeScript", "released": "2026-06-22",
+      "en": "Explain a cron expression in plain words and show its next run times.",
+      "ja": "cron式をわかりやすい言葉で説明し、次回以降の実行日時を表示します。"
+    },
+    {
+      "name": "jwtpeek", "category": "dev", "kind": "CLI", "language": "TypeScript", "released": "2026-06-26",
+      "en": "Decode and inspect a JWT offline, with optional signature verification.",
+      "ja": "JWTをオフラインでデコード・確認。署名の検証もできます。"
+    },
+    {
+      "name": "sheetpack", "category": "dev", "kind": "CLI", "language": "Rust", "released": "2026-08-19",
+      "en": "Deterministic sprite atlas packer for CI: TexturePacker-style JSON, Phaser 3, Godot 4 and CSS output, and a check mode for stale atlases.",
+      "ja": "CI向けの決定論的なスプライトアトラス生成ツール。TexturePacker形式JSON・Phaser 3・Godot 4・CSSを出力し、古いアトラスを検出するチェックモード付き。"
+    },
+    {
+      "name": "oss-starter", "category": "dev", "kind": "Template", "language": "TypeScript", "released": "2026-06-13",
+      "en": "A TypeScript CLI starter template with CI, release automation and community files.",
+      "ja": "CI・リリース自動化・コミュニティファイル同梱のTypeScript製CLIスターターテンプレート。"
+    },
+    {
+      "name": "redact", "category": "security", "kind": "CLI", "language": "Rust", "released": "2026-06-20",
+      "en": "Scrub secrets and personal data from logs and text before sharing them.",
+      "ja": "ログやテキストを共有する前に、シークレットや個人情報を取り除きます。"
+    },
+    {
+      "name": "otp", "category": "security", "kind": "CLI", "language": "Rust", "released": "2026-06-19",
+      "en": "Generate TOTP one-time passwords from a local secrets file and copy them to the clipboard.",
+      "ja": "ローカルのシークレットファイルからTOTPのワンタイムパスワードを生成し、クリップボードにコピーします。"
+    },
+    {
+      "name": "certpeek", "category": "security", "kind": "CLI", "language": "TypeScript", "released": "2026-06-28",
+      "en": "Inspect an X.509 or TLS certificate offline from a file, or live from a URL.",
+      "ja": "X.509/TLS証明書をファイルからオフラインで、またはURLから直接確認します。"
+    },
+    {
+      "name": "dnspeek", "category": "security", "kind": "CLI", "language": "TypeScript", "released": "2026-07-02",
+      "en": "Diagnose a domain's email authentication (SPF, DKIM, DMARC) and key DNS records in plain language.",
+      "ja": "ドメインのメール認証(SPF・DKIM・DMARC)と主要なDNSレコードを、わかりやすい言葉で診断します。"
+    },
+    {
+      "name": "mailpeek", "category": "security", "kind": "CLI", "language": "TypeScript", "released": "2026-07-01",
+      "en": "Read .eml and .msg email files from the terminal: headers, body, HTML to text, or open the HTML locally.",
+      "ja": ".eml/.msgのメールファイルをターミナルで読めます。ヘッダ・本文・HTMLのテキスト化、HTMLのローカル表示に対応。"
+    },
+    {
+      "name": "imappeek", "category": "security", "kind": "CLI", "language": "TypeScript", "released": "2026-07-07",
+      "en": "Peek at recent messages in an IMAP mailbox: list headers and read a message as text.",
+      "ja": "IMAPメールボックスの最近のメールをターミナルで確認。ヘッダ一覧と本文のテキスト表示ができます。"
+    },
+    {
+      "name": "leak-museum", "category": "security", "kind": "Repository", "language": "JavaScript", "released": "2026-07-12",
+      "en": "A guided tour of how not to manage secrets in git: real anti-patterns with fake credentials, each paired with the fix. Also a test corpus for secret scanners.",
+      "ja": "gitでのシークレット管理の悪い例を集めた見学コース。偽の認証情報で再現したアンチパターンと修正方法を対にしています。シークレットスキャナのテスト用データとしても使えます。"
+    },
+    {
+      "name": "vshrink", "category": "media", "kind": "CLI", "language": "TypeScript", "released": "2026-06-13",
+      "en": "ffmpeg helpers to shrink videos to a target size, convert, concatenate and make GIFs.",
+      "ja": "動画を目標サイズに縮める・変換する・結合する・GIFにする、ffmpegのヘルパーCLI。"
+    },
+    {
+      "name": "subtidy", "category": "media", "kind": "CLI", "language": "TypeScript", "released": "2026-06-17",
+      "en": "Tidy, shift and convert .srt and .vtt subtitle files.",
+      "ja": ".srt/.vtt字幕ファイルの整形・タイミング調整・形式変換。"
+    },
+    {
+      "name": "placehold", "category": "media", "kind": "CLI", "language": "Rust", "released": "2026-06-16",
+      "en": "Generate placeholder images locally: a solid color with the size label.",
+      "ja": "サイズ表記入りの単色ダミー画像をローカルで生成します。"
+    },
+    {
+      "name": "qrgen", "category": "media", "kind": "CLI", "language": "Rust", "released": "2026-06-18",
+      "en": "Generate QR codes locally as PNG, SVG or terminal art.",
+      "ja": "QRコードをPNG・SVG・ターミナル表示でローカル生成します。"
+    },
+    {
+      "name": "jxlpeek", "category": "media", "kind": "CLI", "language": "Rust", "released": "2026-09-02",
+      "en": "Inspect JPEG XL files without decoding them: container boxes, codestream headers and web delivery checks.",
+      "ja": "JPEG XLファイルをデコードせずに検査。コンテナ構造・コードストリームのヘッダ・Web配信向けのチェック。"
+    },
+    {
+      "name": "palettefit", "category": "media", "kind": "CLI", "language": "Rust", "released": "2026-09-13",
+      "en": "Audit character art and brand assets for color drift: extract a reference palette and score other images with CIEDE2000.",
+      "ja": "キャラクター絵やブランド素材の配色ズレを監査。基準画像からパレットを抽出し、他の画像をCIEDE2000で採点します。"
+    },
+    {
+      "name": "fxlfit", "category": "media", "kind": "CLI", "language": "Rust", "released": "2026-09-13",
+      "en": "Preflight fixed-layout EPUB comics and picture books: layout and viewport, image budgets and EPUB Accessibility 1.1 metadata.",
+      "ja": "固定レイアウトEPUB(漫画・絵本)の入稿前チェック。レイアウトとviewport・画像の容量・EPUB Accessibility 1.1のメタデータを確認します。"
+    },
+    {
+      "name": "stripcut", "category": "media", "kind": "CLI", "language": "Rust", "released": "2026-08-12",
+      "en": "Slice a tall webtoon canvas between panels instead of through a face, as close to the target tile height as possible.",
+      "ja": "縦長のWebtoon原稿を、顔を切らずにコマの間で分割。目標の高さにできるだけ近い位置で切ります。"
+    },
+    {
+      "name": "wallgen", "category": "media", "kind": "CLI", "language": "Rust", "released": "2026-07-19",
+      "en": "Generative-art wallpapers seeded by the date: same day, same wallpaper, everywhere.",
+      "ja": "日付をシードにしたジェネラティブアートの壁紙生成。同じ日ならどこでも同じ壁紙になります。"
+    },
+    {
+      "name": "pagemods", "category": "productivity", "kind": "Chrome extension", "language": "TypeScript", "released": "2026-09-13",
+      "en": "A Chrome extension of pluggable page mods: form autofill, form inspector, page meta (SEO and link preview tags), per-site styles, environment switcher, bulk image download and tab auto-reload.",
+      "ja": "機能をモジュールとして足していくChrome拡張。フォーム自動入力・フォーム一覧・ページのメタ情報(SEOとリンクプレビュー)・サイト別CSS・環境切替・画像一括ダウンロード・タブ自動リロード。"
+    },
+    {
+      "name": "freeslots", "category": "productivity", "kind": "CLI", "language": "TypeScript", "released": "2026-06-14",
+      "en": "Find free meeting slots in working hours from .ics calendars.",
+      "ja": ".icsカレンダーから、業務時間内の空き時間を打ち合わせ候補として書き出します。"
+    },
+    {
+      "name": "trendcat", "category": "productivity", "kind": "CLI", "language": "TypeScript", "released": "2026-06-21",
+      "en": "What's trending now on Hacker News, Reddit, Wikipedia, Hatena and Google News, in one place.",
+      "ja": "Hacker News・Reddit・Wikipedia・はてな・Googleニュースのいま話題のものをまとめて表示します。"
+    },
+    {
+      "name": "daylog", "category": "productivity", "kind": "CLI", "language": "TypeScript", "released": "2026-06-19",
+      "en": "Gather a day of development activity from git and AI coding tool histories into a digest.",
+      "ja": "gitとAIコーディングツールの履歴から、1日の開発作業をダイジェストにまとめます。"
+    },
+    {
+      "name": "fleetwatch", "category": "productivity", "kind": "CLI", "language": "TypeScript", "released": "2026-06-26",
+      "en": "Watch your tmux Claude Code panes and surface the ones waiting for input.",
+      "ja": "tmuxで動かしているClaude Codeのペインを監視し、入力待ちのものを知らせます。"
+    },
+    {
+      "name": "econtoy", "category": "fun", "kind": "CLI", "language": "Rust", "released": "2026-07-16",
+      "en": "A tiny agent-based economy simulator: turn the interest-rate and money-supply knobs and watch inflation, booms and busts emerge. An educational toy.",
+      "ja": "小さなエージェントベースの経済シミュレーター。金利とマネーサプライを動かして、インフレや好況・不況が生まれる様子を観察できます(教育用のおもちゃです)。"
+    },
+    {
+      "name": "hexplore", "category": "fun", "kind": "CLI", "language": "Zig", "released": "2026-07-19",
+      "en": "An annotated hex dump that teaches binary formats: labels magic numbers, chunk lengths and header fields of PNG, GIF, WAV and ZIP.",
+      "ja": "バイナリ形式を学べる注釈付き16進ダンプ。PNG・GIF・WAV・ZIPのマジックナンバー・チャンク長・ヘッダ項目にラベルを付けます。"
+    },
+    {
+      "name": "asterism", "category": "fun", "kind": "CLI", "language": "Go", "released": "2026-07-19",
+      "en": "Draw constellations and their stick figures in the terminal from real star coordinates.",
+      "ja": "実際の星の座標から、星座と星座線をターミナルに描きます。"
+    },
+    {
+      "name": "gitgroove", "category": "fun", "kind": "CLI", "language": "TypeScript", "released": "2026-07-10",
+      "en": "Turn a git repository's history into a chiptune WAV.",
+      "ja": "gitリポジトリの履歴をチップチューンのWAVに変換します。"
+    },
+    {
+      "name": "vim-dungeons", "category": "fun", "kind": "Neovim plugin", "language": "Lua", "released": "2026-07-19",
+      "en": "A Mystery Dungeon style roguelike that runs inside Neovim.",
+      "ja": "Neovimの中で遊べる、不思議のダンジョン風のローグライク。"
+    },
+    {
+      "name": "omikuji", "category": "fun", "kind": "CLI", "language": "TypeScript", "released": "2026-06-24",
+      "en": "Draw a daily Japanese fortune (omikuji) in your terminal; the same day gives the same result.",
+      "ja": "ターミナルでおみくじを引けます。同じ日なら同じ結果になります。"
+    }
+  ]
+}

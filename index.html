@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>printemps.tokyo open source</title>
+<meta name="description" content="Small, practical open-source tools by printemps.tokyo: command-line tools, browser extensions and more, each with a one-line summary.">
+<link rel="canonical" href="https://printemps-tokyo.github.io/">
+<link rel="alternate" hreflang="en" href="https://printemps-tokyo.github.io/">
+<link rel="alternate" hreflang="ja" href="https://printemps-tokyo.github.io/ja/">
+<link rel="alternate" hreflang="x-default" href="https://printemps-tokyo.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="printemps.tokyo">
+<meta property="og:title" content="printemps.tokyo open source">
+<meta property="og:description" content="Small, practical open-source tools by printemps.tokyo: command-line tools, browser extensions and more, each with a one-line summary.">
+<meta property="og:url" content="https://printemps-tokyo.github.io/">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%23c2185b%22%2F%3E%3Ctext%20x%3D%2216%22%20y%3D%2222%22%20font-family%3D%22system-ui%2Csans-serif%22%20font-size%3D%2217%22%20font-weight%3D%22700%22%20fill%3D%22%23fff%22%20text-anchor%3D%22middle%22%3Ep%3C%2Ftext%3E%3C%2Fsvg%3E">
+<style>:root {
+  --bg: #fbfaf7; --surface: #ffffff; --text: #1d1d1f; --muted: #5f6368; --line: #e4e1da;
+  --accent: #c2185b; --accent-soft: #fce4ec; --chip: #f1eee8; --focus: #1a73e8;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15161a; --surface: #1d1f24; --text: #ececec; --muted: #a3a7ae; --line: #2e3138;
+    --accent: #f06292; --accent-soft: #3a2230; --chip: #262930; --focus: #8ab4f8;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #15161a; --surface: #1d1f24; --text: #ececec; --muted: #a3a7ae; --line: #2e3138;
+  --accent: #f06292; --accent-soft: #3a2230; --chip: #262930; --focus: #8ab4f8;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", "Yu Gothic UI", sans-serif;
+  line-height: 1.65; -webkit-text-size-adjust: 100%;
+}
+a { color: inherit; }
+a:focus-visible, input:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+header.site { border-bottom: 1px solid var(--line); }
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 14px; padding-bottom: 14px; }
+.brand { font-weight: 700; letter-spacing: .01em; text-decoration: none; }
+.brand span { color: var(--accent); }
+.bar nav { display: flex; gap: 6px; flex-wrap: wrap; }
+.bar nav a { font-size: .875rem; text-decoration: none; padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
+.bar nav a:hover { border-color: var(--accent); }
+.hero { padding-top: 40px; padding-bottom: 20px; }
+.hero h1 { font-size: clamp(1.9rem, 4vw, 2.6rem); line-height: 1.2; margin: 0 0 12px; }
+.hero p { margin: 0; color: var(--muted); max-width: 46em; }
+.hero .count { display: inline-block; margin-top: 14px; font-size: .875rem; font-weight: 600; color: var(--accent); background: var(--accent-soft); padding: 2px 10px; border-radius: 999px; }
+.tools { position: sticky; top: 0; z-index: 2; background: var(--bg); border-bottom: 1px solid var(--line); padding: 10px 0; }
+.tools .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+.filter { display: flex; align-items: center; gap: 8px; flex: 1 1 260px; }
+.filter label { font-size: .875rem; color: var(--muted); white-space: nowrap; }
+.filter input { flex: 1; min-width: 0; font: inherit; font-size: .95rem; padding: 7px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--text); }
+.status { font-size: .8125rem; color: var(--muted); }
+.toc { display: flex; gap: 6px; overflow-x: auto; padding: 2px 0; scrollbar-width: thin; flex: 1 1 100%; }
+.toc a { flex: none; font-size: .8125rem; text-decoration: none; padding: 3px 10px; border-radius: 999px; background: var(--chip); }
+.toc a:hover { background: var(--accent-soft); }
+main { padding-top: 8px; padding-bottom: 48px; }
+section.cat { padding-top: 28px; scroll-margin-top: 110px; }
+section.cat h2 { font-size: 1.15rem; margin: 0 0 12px; display: flex; align-items: baseline; gap: 8px; }
+section.cat h2 small { font-size: .8125rem; font-weight: 500; color: var(--muted); }
+ul.grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
+li.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; transition: border-color .15s; }
+li.card:hover { border-color: var(--accent); }
+.card h3 { margin: 0; font-size: 1.05rem; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.card h3 a { text-decoration: none; }
+.card h3 a:hover { color: var(--accent); text-decoration: underline; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px; font-size: .75rem; color: var(--muted); }
+.meta span { background: var(--chip); padding: 1px 8px; border-radius: 999px; }
+.card p { margin: 0; font-size: .9rem; }
+.card time { margin-top: auto; font-size: .75rem; color: var(--muted); }
+.empty { padding: 32px 0; color: var(--muted); }
+footer { border-top: 1px solid var(--line); padding: 20px 0 32px; font-size: .8125rem; color: var(--muted); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+[hidden] { display: none !important; }
+@media (max-width: 520px) {
+  .hero { padding-top: 28px; }
+  ul.grid { grid-template-columns: 1fr; }
+  section.cat { scroll-margin-top: 140px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } li.card { transition: none; } }</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"printemps.tokyo open source","description":"Small, practical open-source tools by printemps.tokyo: command-line tools, browser extensions and more, each with a one-line summary.","url":"https://printemps-tokyo.github.io/","inLanguage":"en","publisher":{"@type":"Organization","name":"printemps.tokyo","url":"https://printemps.tokyo/"},"mainEntity":{"@type":"ItemList","numberOfItems":49,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://github.com/printemps-tokyo/sitepulse","name":"sitepulse"},{"@type":"ListItem","position":2,"url":"https://github.com/printemps-tokyo/gsc","name":"gsc"},{"@type":"ListItem","position":3,"url":"https://github.com/printemps-tokyo/gistpeek","name":"gistpeek"},{"@type":"ListItem","position":4,"url":"https://github.com/printemps-tokyo/baselinefit","name":"baselinefit"},{"@type":"ListItem","position":5,"url":"https://github.com/printemps-tokyo/cruxpeek","name":"cruxpeek"},{"@type":"ListItem","position":6,"url":"https://github.com/printemps-tokyo/httppeek","name":"httppeek"},{"@type":"ListItem","position":7,"url":"https://github.com/printemps-tokyo/ga4","name":"ga4"},{"@type":"ListItem","position":8,"url":"https://github.com/printemps-tokyo/agentsdoc","name":"agentsdoc"},{"@type":"ListItem","position":9,"url":"https://github.com/printemps-tokyo/mcpfit","name":"mcpfit"},{"@type":"ListItem","position":10,"url":"https://github.com/printemps-tokyo/llmcost","name":"llmcost"},{"@type":"ListItem","position":11,"url":"https://github.com/printemps-tokyo/mcppeek","name":"mcppeek"},{"@type":"ListItem","position":12,"url":"https://github.com/printemps-tokyo/ytsum","name":"ytsum"},{"@type":"ListItem","position":13,"url":"https://github.com/printemps-tokyo/repotome","name":"repotome"},{"@type":"ListItem","position":14,"url":"https://github.com/printemps-tokyo/imagine","name":"imagine"},{"@type":"ListItem","position":15,"url":"https://github.com/printemps-tokyo/git3ready","name":"git3ready"},{"@type":"ListItem","position":16,"url":"https://github.com/printemps-tokyo/sheetpack","name":"sheetpack"},{"@type":"ListItem","position":17,"url":"https://github.com/printemps-tokyo/sunsetscan","name":"sunsetscan"},{"@type":"ListItem","position":18,"url":"https://github.com/printemps-tokyo/readyproof","name":"readyproof"},{"@type":"ListItem","position":19,"url":"https://github.com/printemps-tokyo/jwtpeek","name":"jwtpeek"},{"@type":"ListItem","position":20,"url":"https://github.com/printemps-tokyo/whyignore","name":"whyignore"},{"@type":"ListItem","position":21,"url":"https://github.com/printemps-tokyo/cronpeek","name":"cronpeek"},{"@type":"ListItem","position":22,"url":"https://github.com/printemps-tokyo/oss-starter","name":"oss-starter"},{"@type":"ListItem","position":23,"url":"https://github.com/printemps-tokyo/leak-museum","name":"leak-museum"},{"@type":"ListItem","position":24,"url":"https://github.com/printemps-tokyo/imappeek","name":"imappeek"},{"@type":"ListItem","position":25,"url":"https://github.com/printemps-tokyo/dnspeek","name":"dnspeek"},{"@type":"ListItem","position":26,"url":"https://github.com/printemps-tokyo/mailpeek","name":"mailpeek"},{"@type":"ListItem","position":27,"url":"https://github.com/printemps-tokyo/certpeek","name":"certpeek"},{"@type":"ListItem","position":28,"url":"https://github.com/printemps-tokyo/redact","name":"redact"},{"@type":"ListItem","position":29,"url":"https://github.com/printemps-tokyo/otp","name":"otp"},{"@type":"ListItem","position":30,"url":"https://github.com/printemps-tokyo/fxlfit","name":"fxlfit"},{"@type":"ListItem","position":31,"url":"https://github.com/printemps-tokyo/palettefit","name":"palettefit"},{"@type":"ListItem","position":32,"url":"https://github.com/printemps-tokyo/jxlpeek","name":"jxlpeek"},{"@type":"ListItem","position":33,"url":"https://github.com/printemps-tokyo/stripcut","name":"stripcut"},{"@type":"ListItem","position":34,"url":"https://github.com/printemps-tokyo/wallgen","name":"wallgen"},{"@type":"ListItem","position":35,"url":"https://github.com/printemps-tokyo/qrgen","name":"qrgen"},{"@type":"ListItem","position":36,"url":"https://github.com/printemps-tokyo/subtidy","name":"subtidy"},{"@type":"ListItem","position":37,"url":"https://github.com/printemps-tokyo/placehold","name":"placehold"},{"@type":"ListItem","position":38,"url":"https://github.com/printemps-tokyo/vshrink","name":"vshrink"},{"@type":"ListItem","position":39,"url":"https://github.com/printemps-tokyo/pagemods","name":"pagemods"},{"@type":"ListItem","position":40,"url":"https://github.com/printemps-tokyo/fleetwatch","name":"fleetwatch"},{"@type":"ListItem","position":41,"url":"https://github.com/printemps-tokyo/trendcat","name":"trendcat"},{"@type":"ListItem","position":42,"url":"https://github.com/printemps-tokyo/daylog","name":"daylog"},{"@type":"ListItem","position":43,"url":"https://github.com/printemps-tokyo/freeslots","name":"freeslots"},{"@type":"ListItem","position":44,"url":"https://github.com/printemps-tokyo/asterism","name":"asterism"},{"@type":"ListItem","position":45,"url":"https://github.com/printemps-tokyo/hexplore","name":"hexplore"},{"@type":"ListItem","position":46,"url":"https://github.com/printemps-tokyo/vim-dungeons","name":"vim-dungeons"},{"@type":"ListItem","position":47,"url":"https://github.com/printemps-tokyo/econtoy","name":"econtoy"},{"@type":"ListItem","position":48,"url":"https://github.com/printemps-tokyo/gitgroove","name":"gitgroove"},{"@type":"ListItem","position":49,"url":"https://github.com/printemps-tokyo/omikuji","name":"omikuji"}]}}</script>
+</head>
+<body>
+<header class="site">
+<div class="wrap bar">
+<a class="brand" href="https://printemps.tokyo/">printemps<span>.</span>tokyo</a>
+<nav aria-label="Links">
+<a href="https://github.com/printemps-tokyo">GitHub organization</a>
+<a href="ja/" hreflang="ja" lang="ja" title="このページを日本語で見る">日本語</a>
+</nav>
+</div>
+</header>
+<div class="wrap hero">
+<h1>Open source</h1>
+<p>Small, practical tools by printemps.tokyo for web analytics, AI, development, media and everyday work, each focused on one job.</p>
+<span class="count">49 projects</span>
+</div>
+<div class="tools" hidden>
+<div class="wrap">
+<div class="filter" role="search">
+<label for="q">Filter</label>
+<input id="q" type="search" placeholder="Name, language or keyword" autocomplete="off">
+</div>
+<span class="status" id="status" role="status" aria-live="polite" data-format="{n} of {total} shown"></span>
+<nav class="toc" aria-label="Categories">
+<a href="#web">Web, SEO and analytics</a>
+<a href="#ai">AI and LLM</a>
+<a href="#dev">Developer tools</a>
+<a href="#security">Security, email and DNS</a>
+<a href="#media">Images, video and publishing</a>
+<a href="#productivity">Productivity</a>
+<a href="#fun">Fun and learning</a>
+</nav>
+</div>
+</div>
+<main class="wrap">
+<section class="cat" id="web" aria-labelledby="h-web">
+<h2 id="h-web">Web, SEO and analytics <small>7 projects</small></h2>
+<ul class="grid">
+<li class="card" data-search="sitepulse typescript cli cli ga4 and google search console side by side, one row per hostname: users, sessions, pageviews, clicks, impressions, ctr and position.">
+  <h3><a href="https://github.com/printemps-tokyo/sitepulse">sitepulse</a></h3>
+  <div class="meta"><span>CLI</span><span>TypeScript</span></div>
+  <p>GA4 and Google Search Console side by side, one row per hostname: users, sessions, pageviews, clicks, impressions, CTR and position.</p>
+  <time datetime="2026-10-07">Released 2026-10-07</time>
+</li>
+<li class="card" data-search="gsc typescript cli cli check google search console clicks, impressions, ctr and position from the terminal, for one site or every site at once.">
+  <h3><a href="https://github.com/printemps-tokyo/gsc">gsc</a></h3>
+  <div class="meta"><span>CLI</span><span>TypeScript</span></div>
+  <p>Check Google Search Console clicks, impressions, CTR and position from the terminal, for one site or every site at once.</p>
+  <time datetime="2026-10-04">Released 2026-10-04</time>
+</li>
+<li class="card" data-search="gistpeek typescript chrome extension chrome extension a chrome side panel that summarizes the page with the browser&#39;s on-device ai and checks whether the point you meant to make survives. nothing leaves the device.">
+  <h3><a href="https://github.com/printemps-tokyo/gistpeek">gistpeek</a></h3>
+  <div class="meta"><span>Chrome extension</span><span>TypeScript</span></div>
+  <p>A Chrome side panel that summarizes the page with the browser&#39;s on-device AI and checks whether the point you meant to make survives. Nothing leaves the device.</p>
+  <time datetime="2026-08-31">Released 2026-08-31</time>
+</li>
+<li class="card" data-search="baselinefit rust cli cli audit css against web platform baseline both ways: features not yet safe for your target, and prefixes, @supports guards and polyfills you can now delete.">
+  <h3><a href="https://github.com/printemps-tokyo/baselinefit">baselinefit</a></h3>
+  <div class="meta"><span>CLI</span><span>Rust</span></div>
+  <p>Audit CSS against Web Platform Baseline both ways: features not yet safe for your target, and prefixes, @supports guards and polyfills you can now delete.</p>
+  <time datetime="2026-08-12">Released 2026-08-12</time>
+</li>
+<li class="card" data-search="cruxpeek go cli cli real-user core web vitals from the chrome ux report: p75 lcp, inp and cls graded against the official thresholds, with history sparklines.">
+  <h3><a href="https://github.com/printemps-tokyo/cruxpeek">cruxpeek</a></h3>
+  <div class="meta"><span>CLI</span><span>Go</span></div>
+  <p>Real-user Core Web Vitals from the Chrome UX Report: p75 LCP, INP and CLS graded against the official thresholds, with history sparklines.</p>
+  <time datetime="2026-07-24">Released 2026-07-24</time>
+</li>
+<li class="card" data-search="httppeek go cli cli a url&#39;s http behavior in one command: redirect chain, caching and security headers, tls certificate and per-phase timing.">
+  <h3><a href="https://github.com/printemps-tokyo/httppeek">httppeek</a></h3>
+  <div class="meta"><span>CLI</span><span>Go</span></div>
+  <p>A URL&#39;s HTTP behavior in one command: redirect chain, caching and security headers, TLS certificate and per-phase timing.</p>
+  <time datetime="2026-07-19">Released 2026-07-19</time>
+</li>
+<li class="card" data-search="ga4 typescript cli cli check a ga4 property&#39;s recent traffic (users, sessions, pageviews) from the terminal.">
+  <h3><a href="https://github.com/printemps-tokyo/ga4">ga4</a></h3>
+  <div class="meta"><span>CLI</span><span>TypeScript</span></div>
+  <p>Check a GA4 property&#39;s recent traffic (users, sessions, pageviews) from the terminal.</p>
+  <time datetime="2026-06-21">Released 2026-06-21</time>
+</li>
+</ul>
+</section>
+<section class="cat" id="ai" aria-labelledby="h-ai">
+<h2 id="h-ai">AI and LLM <small>7 projects</small></h2>
+<ul class="grid">
+<li class="card" data-search="agentsdoc rust cli cli audit ai agent instruction files (agents.md, claude.md, cursor rules, copilot instructions) for portability across tools.">
+  <h3><a href="https://github.com/printemps-tokyo/agentsdoc">agentsdoc</a></h3>
+  <div class="meta"><span>CLI</span><span>Rust</span></div>
+  <p>Audit AI agent instruction files (AGENTS.md, CLAUDE.md, Cursor rules, Copilot instructions) for portability across tools.</p>
+  <time datetime="2026-07-29">Released 2026-07-29</time>
+</li>
+<li class="card" data-search="mcpfit go cli cli audit an mcp server against the stateless mcp spec: session reliance, legacy tool schemas, deprecated methods and missing cache hints.">
+  <h3><a href="https://github.com/printemps-tokyo/mcpfit">mcpfit</a></h3>
+  <div class="meta"><span>CLI</span><span>Go</span></div>
+  <p>Audit an MCP server against the stateless MCP spec: session reliance, legacy tool schemas, deprecated methods and missing cache hints.</p>
+  <time datetime="2026-07-24">Released 2026-07-24</time>
+</li>
+<li class="card" data-search="llmcost python cli cli estimate and compare llm api costs across openai, anthropic, google, xai and deepseek, offline from a versioned price table.">
+  <h3><a href="https://github.com/printemps-tokyo/llmcost">llmcost</a></h3>
+  <div class="meta"><span>CLI</span><span>Python</span></div>
+  <p>Estimate and compare LLM API costs across OpenAI, Anthropic, Google, xAI and DeepSeek, offline from a versioned price table.</p>
+  <time datetime="2026-07-19">Released 2026-07-19</time>
+</li>
+<li class="card" data-search="mcppeek typescript cli cli inspect a model context protocol server: list its tools, resources and prompts, lint their schemas, and call a tool.">
+  <h3><a href="https://github.com/printemps-tokyo/mcppeek">mcppeek</a></h3>
+  <div class="meta"><span>CLI</span><span>TypeScript</span></div>
+  <p>Inspect a Model Context Protocol server: list its tools, resources and prompts, lint their schemas, and call a tool.</p>
+  <time datetime="2026-07-09">Released 2026-07-09</time>
+</li>
+<li class="card" data-search="ytsum typescript cli cli fetch youtube transcripts (via yt-dlp) as clean, llm-ready text.">
+  <h3><a href="https://github.com/printemps-tokyo/ytsum">ytsum</a></h3>
+  <div class="meta"><span>CLI</span><span>TypeScript</span></div>
+  <p>Fetch YouTube transcripts (via yt-dlp) as clean, LLM-ready text.</p>
+  <time datetime="2026-06-15">Released 2026-06-15</time>
+</li>
+<li class="card" data-search="repotome rust cli cli pack a git repository into a single text document for llms.">
+  <h3><a href="https://github.com/printemps-tokyo/repotome">repotome</a></h3>
+  <div class="meta"><span>CLI</span><span>Rust</span></div>
+  <p>Pack a git repository into a single text document for LLMs.</p>
+  <time datetime="2026-06-14">Released 2026-06-14</time>
+</li>
+<li class="card" data-search="imagine typescript cli cli generate images with several ai providers (openai, gemini, fal) from one prompt.">
+  <h3><a href="https://github.com/printemps-tokyo/imagine">imagine</a></h3>
+  <div class="meta"><span>CLI</span><span>TypeScript</span></div>
+  <p>Generate images with several AI providers (OpenAI, Gemini, fal) from one prompt.</p>
+  <time datetime="2026-06-13">Released 2026-06-13</time>
+</li>
+</ul>
+</section>
+<section class="cat" id="dev" aria-labelledby="h-dev">
+<h2 id="h-dev">Developer tools <small>8 projects</small></h2>
+<ul class="grid">
+<li class="card" data-search="git3ready rust cli cli find the scripts, hooks, tests and ci steps that assume git 2.x defaults before git 3.0 changes them, and rehearse the new defaults today.">
+  <h3><a href="https://github.com/printemps-tokyo/git3ready">git3ready</a></h3>
+  <div class="meta"><span>CLI</span><span>Rust</span></div>
+  <p>Find the scripts, hooks, tests and CI steps that assume Git 2.x defaults before Git 3.0 changes them, and rehearse the new defaults today.</p>
+  <time datetime="2026-09-23">Released 2026-09-23</time>
+</li>
+<li class="card" data-search="sheetpack rust cli cli deterministic sprite atlas packer for ci: texturepacker-style json, phaser 3, godot 4 and css output, and a check mode for stale atlases.">
+  <h3><a href="https://github.com/printemps-tokyo/sheetpack">sheetpack</a></h3>
+  <div class="meta"><span>CLI</span><span>Rust</span></div>
+  <p>Deterministic sprite atlas packer for CI: TexturePacker-style JSON, Phaser 3, Godot 4 and CSS output, and a check mode for stale atlases.</p>
+  <time datetime="2026-08-19">Released 2026-08-19</time>
+</li>
+<li class="card" data-search="sunsetscan rust cli cli find code that depends on apis with announced shutdown dates, with days remaining and the official migration path.">
+  <h3><a href="https://github.com/printemps-tokyo/sunsetscan">sunsetscan</a></h3>
+  <div class="meta"><span>CLI</span><span>Rust</span></div>
+  <p>Find code that depends on APIs with announced shutdown dates, with days remaining and the official migration path.</p>
+  <time datetime="2026-08-11">Released 2026-08-11</time>
+</li>
+<li class="card" data-search="readyproof rust cli cli audit an open source repository for the security practices adopters ask about: security.md, license, lockfiles, ci tests, pinned actions and more.">
+  <h3><a href="https://github.com/printemps-tokyo/readyproof">readyproof</a></h3>
+  <div class="meta"><span>CLI</span><span>Rust</span></div>
+  <p>Audit an open source repository for the security practices adopters ask about: SECURITY.md, license, lockfiles, CI tests, pinned Actions and more.</p>
+  <time datetime="2026-07-26">Released 2026-07-26</time>
+</li>
+<li class="card" data-search="jwtpeek typescript cli cli decode and inspect a jwt offline, with optional signature verification.">
+  <h3><a href="https://github.com/printemps-tokyo/jwtpeek">jwtpeek</a></h3>
+  <div class="meta"><span>CLI</span><span>TypeScript</span></div>
+  <p>Decode and inspect a JWT offline, with optional signature verification.</p>
+  <time datetime="2026-06-26">Released 2026-06-26</time>
+</li>
+<li class="card" data-search="whyignore rust cli cli explain which .gitignore rule matches a path, without calling git.">
+  <h3><a href="https://github.com/printemps-tokyo/whyignore">whyignore</a></h3>
+  <div class="meta"><span>CLI</span><span>Rust</span></div>
+  <p>Explain which .gitignore rule matches a path, without calling Git.</p>
+  <time datetime="2026-06-23">Released 2026-06-23</time>
+</li>
+<li class="card" data-search="cronpeek typescript cli cli explain a cron expression in plain words and show its next run times.">
+  <h3><a href="https://github.com/printemps-tokyo/cronpeek">cronpeek</a></h3>
+  <div class="meta"><span>CLI</span><span>TypeScript</span></div>
+  <p>Explain a cron expression in plain words and show its next run times.</p>
+  <time datetime="2026-06-22">Released 2026-06-22</time>
+</li>
+<li class="card" data-search="oss-starter typescript template template a typescript cli starter template with ci, release automation and community files.">
+  <h3><a href="https://github.com/printemps-tokyo/oss-starter">oss-starter</a></h3>
+  <div class="meta"><span>Template</span><span>TypeScript</span></div>
+  <p>A TypeScript CLI starter template with CI, release automation and community files.</p>
+  <time datetime="2026-06-13">Released 2026-06-13</time>
+</li>
+</ul>
+</section>
+<section class="cat" id="security" aria-labelledby="h-security">
+<h2 id="h-security">Security, email and DNS <small>7 projects</small></h2>
+<ul class="grid">
+<li class="card" data-search="leak-museum javascript repository repository a guided tour of how not to manage secrets in git: real anti-patterns with fake credentials, each paired with the fix. also a test corpus for secret scanners.">
+  <h3><a href="https://github.com/printemps-tokyo/leak-museum">leak-museum</a></h3>
+  <div class="meta"><span>Repository</span><span>JavaScript</span></div>
+  <p>A guided tour of how not to manage secrets in git: real anti-patterns with fake credentials, each paired with the fix. Also a test corpus for secret scanners.</p>
+  <time datetime="2026-07-12">Released 2026-07-12</time>
+</li>
+<li class="card" data-search="imappeek typescript cli cli peek at recent messages in an imap mailbox: list headers and read a message as text.">
+  <h3><a href="https://github.com/printemps-tokyo/imappeek">imappeek</a></h3>
+  <div class="meta"><span>CLI</span><span>TypeScript</span></div>
+  <p>Peek at recent messages in an IMAP mailbox: list headers and read a message as text.</p>
+  <time datetime="2026-07-07">Released 2026-07-07</time>
+</li>
+<li class="card" data-search="dnspeek typescript cli cli diagnose a domain&#39;s email authentication (spf, dkim, dmarc) and key dns records in plain language.">
+  <h3><a href="https://github.com/printemps-tokyo/dnspeek">dnspeek</a></h3>
+  <div class="meta"><span>CLI</span><span>TypeScript</span></div>
+  <p>Diagnose a domain&#39;s email authentication (SPF, DKIM, DMARC) and key DNS records in plain language.</p>
+  <time datetime="2026-07-02">Released 2026-07-02</time>
+</li>
+<li class="card" data-search="mailpeek typescript cli cli read .eml and .msg email files from the terminal: headers, body, html to text, or open the html locally.">
+  <h3><a href="https://github.com/printemps-tokyo/mailpeek">mailpeek</a></h3>
+  <div class="meta"><span>CLI</span><span>TypeScript</span></div>
+  <p>Read .eml and .msg email files from the terminal: headers, body, HTML to text, or open the HTML locally.</p>
+  <time datetime="2026-07-01">Released 2026-07-01</time>
+</li>
+<li class="card" data-search="certpeek typescript cli cli inspect an x.509 or tls certificate offline from a file, or live from a url.">
+  <h3><a href="https://github.com/printemps-tokyo/certpeek">certpeek</a></h3>
+  <div class="meta"><span>CLI</span><span>TypeScript</span></div>
+  <p>Inspect an X.509 or TLS certificate offline from a file, or live from a URL.</p>
+  <time datetime="2026-06-28">Released 2026-06-28</time>
+</li>
+<li class="card" data-search="redact rust cli cli scrub secrets and personal data from logs and text before sharing them.">
+  <h3><a href="https://github.com/printemps-tokyo/redact">redact</a></h3>
+  <div class="meta"><span>CLI</span><span>Rust</span></div>
+  <p>Scrub secrets and personal data from logs and text before sharing them.</p>
+  <time datetime="2026-06-20">Released 2026-06-20</time>
+</li>
+<li class="card" data-search="otp rust cli cli generate totp one-time passwords from a local secrets file and copy them to the clipboard.">
+  <h3><a href="https://github.com/printemps-tokyo/otp">otp</a></h3>
+  <div class="meta"><span>CLI</span><span>Rust</span></div>
+  <p>Generate TOTP one-time passwords from a local secrets file and copy them to the clipboard.</p>
+  <time datetime="2026-06-19">Released 2026-06-19</time>
+</li>
+</ul>
+</section>
+<section class="cat" id="media" aria-labelledby="h-media">
+<h2 id="h-media">Images, video and publishing <small>9 projects</small></h2>
+<ul class="grid">
+<li class="card" data-search="fxlfit rust cli cli preflight fixed-layout epub comics and picture books: layout and viewport, image budgets and epub accessibility 1.1 metadata.">
+  <h3><a href="https://github.com/printemps-tokyo/fxlfit">fxlfit</a></h3>
+  <div class="meta"><span>CLI</span><span>Rust</span></div>
+  <p>Preflight fixed-layout EPUB comics and picture books: layout and viewport, image budgets and EPUB Accessibility 1.1 metadata.</p>
+  <time datetime="2026-09-13">Released 2026-09-13</time>
+</li>
+<li class="card" data-search="palettefit rust cli cli audit character art and brand assets for color drift: extract a reference palette and score other images with ciede2000.">
+  <h3><a href="https://github.com/printemps-tokyo/palettefit">palettefit</a></h3>
+  <div class="meta"><span>CLI</span><span>Rust</span></div>
+  <p>Audit character art and brand assets for color drift: extract a reference palette and score other images with CIEDE2000.</p>
+  <time datetime="2026-09-13">Released 2026-09-13</time>
+</li>
+<li class="card" data-search="jxlpeek rust cli cli inspect jpeg xl files without decoding them: container boxes, codestream headers and web delivery checks.">
+  <h3><a href="https://github.com/printemps-tokyo/jxlpeek">jxlpeek</a></h3>
+  <div class="meta"><span>CLI</span><span>Rust</span></div>
+  <p>Inspect JPEG XL files without decoding them: container boxes, codestream headers and web delivery checks.</p>
+  <time datetime="2026-09-02">Released 2026-09-02</time>
+</li>
+<li class="card" data-search="stripcut rust cli cli slice a tall webtoon canvas between panels instead of through a face, as close to the target tile height as possible.">
+  <h3><a href="https://github.com/printemps-tokyo/stripcut">stripcut</a></h3>
+  <div class="meta"><span>CLI</span><span>Rust</span></div>
+  <p>Slice a tall webtoon canvas between panels instead of through a face, as close to the target tile height as possible.</p>
+  <time datetime="2026-08-12">Released 2026-08-12</time>
+</li>
+<li class="card" data-search="wallgen rust cli cli generative-art wallpapers seeded by the date: same day, same wallpaper, everywhere.">
+  <h3><a href="https://github.com/printemps-tokyo/wallgen">wallgen</a></h3>
+  <div class="meta"><span>CLI</span><span>Rust</span></div>
+  <p>Generative-art wallpapers seeded by the date: same day, same wallpaper, everywhere.</p>
+  <time datetime="2026-07-19">Released 2026-07-19</time>
+</li>
+<li class="card" data-search="qrgen rust cli cli generate qr codes locally as png, svg or terminal art.">
+  <h3><a href="https://github.com/printemps-tokyo/qrgen">qrgen</a></h3>
+  <div class="meta"><span>CLI</span><span>Rust</span></div>
+  <p>Generate QR codes locally as PNG, SVG or terminal art.</p>
+  <time datetime="2026-06-18">Released 2026-06-18</time>
+</li>
+<li class="card" data-search="subtidy typescript cli cli tidy, shift and convert .srt and .vtt subtitle files.">
+  <h3><a href="https://github.com/printemps-tokyo/subtidy">subtidy</a></h3>
+  <div class="meta"><span>CLI</span><span>TypeScript</span></div>
+  <p>Tidy, shift and convert .srt and .vtt subtitle files.</p>
+  <time datetime="2026-06-17">Released 2026-06-17</time>
+</li>
+<li class="card" data-search="placehold rust cli cli generate placeholder images locally: a solid color with the size label.">
+  <h3><a href="https://github.com/printemps-tokyo/placehold">placehold</a></h3>
+  <div class="meta"><span>CLI</span><span>Rust</span></div>
+  <p>Generate placeholder images locally: a solid color with the size label.</p>
+  <time datetime="2026-06-16">Released 2026-06-16</time>
+</li>
+<li class="card" data-search="vshrink typescript cli cli ffmpeg helpers to shrink videos to a target size, convert, concatenate and make gifs.">
+  <h3><a href="https://github.com/printemps-tokyo/vshrink">vshrink</a></h3>
+  <div class="meta"><span>CLI</span><span>TypeScript</span></div>
+  <p>ffmpeg helpers to shrink videos to a target size, convert, concatenate and make GIFs.</p>
+  <time datetime="2026-06-13">Released 2026-06-13</time>
+</li>
+</ul>
+</section>
+<section class="cat" id="productivity" aria-labelledby="h-productivity">
+<h2 id="h-productivity">Productivity <small>5 projects</small></h2>
+<ul class="grid">
+<li class="card" data-search="pagemods typescript chrome extension chrome extension a chrome extension of pluggable page mods: form autofill, form inspector, page meta (seo and link preview tags), per-site styles, environment switcher, bulk image download and tab auto-reload.">
+  <h3><a href="https://github.com/printemps-tokyo/pagemods">pagemods</a></h3>
+  <div class="meta"><span>Chrome extension</span><span>TypeScript</span></div>
+  <p>A Chrome extension of pluggable page mods: form autofill, form inspector, page meta (SEO and link preview tags), per-site styles, environment switcher, bulk image download and tab auto-reload.</p>
+  <time datetime="2026-09-13">Released 2026-09-13</time>
+</li>
+<li class="card" data-search="fleetwatch typescript cli cli watch your tmux claude code panes and surface the ones waiting for input.">
+  <h3><a href="https://github.com/printemps-tokyo/fleetwatch">fleetwatch</a></h3>
+  <div class="meta"><span>CLI</span><span>TypeScript</span></div>
+  <p>Watch your tmux Claude Code panes and surface the ones waiting for input.</p>
+  <time datetime="2026-06-26">Released 2026-06-26</time>
+</li>
+<li class="card" data-search="trendcat typescript cli cli what&#39;s trending now on hacker news, reddit, wikipedia, hatena and google news, in one place.">
+  <h3><a href="https://github.com/printemps-tokyo/trendcat">trendcat</a></h3>
+  <div class="meta"><span>CLI</span><span>TypeScript</span></div>
+  <p>What&#39;s trending now on Hacker News, Reddit, Wikipedia, Hatena and Google News, in one place.</p>
+  <time datetime="2026-06-21">Released 2026-06-21</time>
+</li>
+<li class="card" data-search="daylog typescript cli cli gather a day of development activity from git and ai coding tool histories into a digest.">
+  <h3><a href="https://github.com/printemps-tokyo/daylog">daylog</a></h3>
+  <div class="meta"><span>CLI</span><span>TypeScript</span></div>
+  <p>Gather a day of development activity from git and AI coding tool histories into a digest.</p>
+  <time datetime="2026-06-19">Released 2026-06-19</time>
+</li>
+<li class="card" data-search="freeslots typescript cli cli find free meeting slots in working hours from .ics calendars.">
+  <h3><a href="https://github.com/printemps-tokyo/freeslots">freeslots</a></h3>
+  <div class="meta"><span>CLI</span><span>TypeScript</span></div>
+  <p>Find free meeting slots in working hours from .ics calendars.</p>
+  <time datetime="2026-06-14">Released 2026-06-14</time>
+</li>
+</ul>
+</section>
+<section class="cat" id="fun" aria-labelledby="h-fun">
+<h2 id="h-fun">Fun and learning <small>6 projects</small></h2>
+<ul class="grid">
+<li class="card" data-search="asterism go cli cli draw constellations and their stick figures in the terminal from real star coordinates.">
+  <h3><a href="https://github.com/printemps-tokyo/asterism">asterism</a></h3>
+  <div class="meta"><span>CLI</span><span>Go</span></div>
+  <p>Draw constellations and their stick figures in the terminal from real star coordinates.</p>
+  <time datetime="2026-07-19">Released 2026-07-19</time>
+</li>
+<li class="card" data-search="hexplore zig cli cli an annotated hex dump that teaches binary formats: labels magic numbers, chunk lengths and header fields of png, gif, wav and zip.">
+  <h3><a href="https://github.com/printemps-tokyo/hexplore">hexplore</a></h3>
+  <div class="meta"><span>CLI</span><span>Zig</span></div>
+  <p>An annotated hex dump that teaches binary formats: labels magic numbers, chunk lengths and header fields of PNG, GIF, WAV and ZIP.</p>
+  <time datetime="2026-07-19">Released 2026-07-19</time>
+</li>
+<li class="card" data-search="vim-dungeons lua neovim plugin neovim plugin a mystery dungeon style roguelike that runs inside neovim.">
+  <h3><a href="https://github.com/printemps-tokyo/vim-dungeons">vim-dungeons</a></h3>
+  <div class="meta"><span>Neovim plugin</span><span>Lua</span></div>
+  <p>A Mystery Dungeon style roguelike that runs inside Neovim.</p>
+  <time datetime="2026-07-19">Released 2026-07-19</time>
+</li>
+<li class="card" data-search="econtoy rust cli cli a tiny agent-based economy simulator: turn the interest-rate and money-supply knobs and watch inflation, booms and busts emerge. an educational toy.">
+  <h3><a href="https://github.com/printemps-tokyo/econtoy">econtoy</a></h3>
+  <div class="meta"><span>CLI</span><span>Rust</span></div>
+  <p>A tiny agent-based economy simulator: turn the interest-rate and money-supply knobs and watch inflation, booms and busts emerge. An educational toy.</p>
+  <time datetime="2026-07-16">Released 2026-07-16</time>
+</li>
+<li class="card" data-search="gitgroove typescript cli cli turn a git repository&#39;s history into a chiptune wav.">
+  <h3><a href="https://github.com/printemps-tokyo/gitgroove">gitgroove</a></h3>
+  <div class="meta"><span>CLI</span><span>TypeScript</span></div>
+  <p>Turn a git repository&#39;s history into a chiptune WAV.</p>
+  <time datetime="2026-07-10">Released 2026-07-10</time>
+</li>
+<li class="card" data-search="omikuji typescript cli cli draw a daily japanese fortune (omikuji) in your terminal; the same day gives the same result.">
+  <h3><a href="https://github.com/printemps-tokyo/omikuji">omikuji</a></h3>
+  <div class="meta"><span>CLI</span><span>TypeScript</span></div>
+  <p>Draw a daily Japanese fortune (omikuji) in your terminal; the same day gives the same result.</p>
+  <time datetime="2026-06-24">Released 2026-06-24</time>
+</li>
+</ul>
+</section>
+<p class="empty" id="empty" hidden>No project matches.</p>
+</main>
+<footer>
+<div class="wrap">
+<span>&copy; printemps.tokyo</span>
+<span>Updated <time datetime="2026-10-09">2026-10-09</time></span>
+</div>
+</footer>
+<script>(() => {
+  const input = document.getElementById("q");
+  const status = document.getElementById("status");
+  const empty = document.getElementById("empty");
+  const cards = [...document.querySelectorAll("li.card")];
+  const sections = [...document.querySelectorAll("section.cat")];
+  const total = cards.length;
+  const fmt = status.dataset.format;
+  const norm = (s) => s.normalize("NFKC").toLowerCase();
+  const run = () => {
+    const words = norm(input.value).split(/\s+/).filter(Boolean);
+    let shown = 0;
+    for (const c of cards) {
+      const hit = words.every((w) => c.dataset.search.includes(w));
+      c.hidden = !hit;
+      if (hit) shown++;
+    }
+    for (const s of sections) s.hidden = !s.querySelector("li.card:not([hidden])");
+    empty.hidden = shown > 0;
+    status.textContent = words.length ? fmt.replace("{n}", shown).replace("{total}", total) : "";
+  };
+  input.addEventListener("input", run);
+  document.querySelector(".tools").hidden = false;
+})();</script>
+</body>
+</html>
