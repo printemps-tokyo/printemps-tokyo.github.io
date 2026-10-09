@@ -41,8 +41,8 @@
     },
     {
       "name": "gistpeek", "category": "web", "kind": "Chrome extension", "language": "TypeScript", "released": "2026-08-31",
-      "en": "A Chrome side panel that summarizes the page with the browser's on-device AI and checks whether the point you meant to make survives. Nothing leaves the device.",
-      "ja": "Chrome内蔵のオンデバイスAIでページを要約し、伝えたい結論がAIに伝わるかを判定するサイドパネル。データは端末の外に出ません。"
+      "en": "A Chrome side panel that summarizes the page with the browser's on-device AI and checks whether the point you meant to make survives. The page text is never uploaded.",
+      "ja": "Chrome内蔵のオンデバイスAIでページを要約し、伝えたい結論がAIに伝わるかを判定するサイドパネル。ページ本文は外部にアップロードしません。"
     },
     {
       "name": "imagine", "category": "ai", "kind": "CLI", "language": "TypeScript", "released": "2026-06-13",
@@ -191,8 +191,8 @@
     },
     {
       "name": "stripcut", "category": "media", "kind": "CLI", "language": "Rust", "released": "2026-08-12",
-      "en": "Slice a tall webtoon canvas between panels instead of through a face, as close to the target tile height as possible.",
-      "ja": "縦長のWebtoon原稿を、顔を切らずにコマの間で分割。目標の高さにできるだけ近い位置で切ります。"
+      "en": "Slice a tall webtoon canvas in the gutters between panels, as close to the target tile height as possible, and report any cut that has to go through the art.",
+      "ja": "縦長のWebtoon原稿を、目標の高さにできるだけ近いコマ間の余白で分割。余白がなく絵を横切るしかない箇所は警告します。"
     },
     {
       "name": "wallgen", "category": "media", "kind": "CLI", "language": "Rust", "released": "2026-07-19",

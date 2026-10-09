@@ -21,19 +21,19 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%23c2185b%22%2F%3E%3Ctext%20x%3D%2216%22%20y%3D%2222%22%20font-family%3D%22system-ui%2Csans-serif%22%20font-size%3D%2217%22%20font-weight%3D%22700%22%20fill%3D%22%23fff%22%20text-anchor%3D%22middle%22%3Ep%3C%2Ftext%3E%3C%2Fsvg%3E">
 <style>:root {
   --bg: #fbfaf7; --surface: #ffffff; --text: #1d1d1f; --muted: #5f6368; --line: #e4e1da;
-  --accent: #c2185b; --accent-soft: #fce4ec; --chip: #f1eee8; --focus: #1a73e8;
+  --accent: #c2185b; --accent-soft: #fce4ec; --chip: #f1eee8; --focus: #1a73e8; --field-line: #8a8580;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #15161a; --surface: #1d1f24; --text: #ececec; --muted: #a3a7ae; --line: #2e3138;
-    --accent: #f06292; --accent-soft: #3a2230; --chip: #262930; --focus: #8ab4f8;
+    --accent: #f06292; --accent-soft: #3a2230; --chip: #262930; --focus: #8ab4f8; --field-line: #6b7079;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #15161a; --surface: #1d1f24; --text: #ececec; --muted: #a3a7ae; --line: #2e3138;
-  --accent: #f06292; --accent-soft: #3a2230; --chip: #262930; --focus: #8ab4f8;
+  --accent: #f06292; --accent-soft: #3a2230; --chip: #262930; --focus: #8ab4f8; --field-line: #6b7079;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
@@ -61,7 +61,7 @@ header.site { border-bottom: 1px solid var(--line); }
 .tools .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
 .filter { display: flex; align-items: center; gap: 8px; flex: 1 1 260px; }
 .filter label { font-size: .875rem; color: var(--muted); white-space: nowrap; }
-.filter input { flex: 1; min-width: 0; font: inherit; font-size: .95rem; padding: 7px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--text); }
+.filter input { flex: 1; min-width: 0; font: inherit; font-size: .95rem; padding: 7px 12px; border: 1px solid var(--field-line); border-radius: 8px; background: var(--surface); color: var(--text); }
 .status { font-size: .8125rem; color: var(--muted); }
 .toc { display: flex; gap: 6px; overflow-x: auto; padding: 2px 0; scrollbar-width: thin; flex: 1 1 100%; }
 .toc a { flex: none; font-size: .8125rem; text-decoration: none; padding: 3px 10px; border-radius: 999px; background: var(--chip); }
@@ -141,10 +141,10 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   <p>Check Google Search Console clicks, impressions, CTR and position from the terminal, for one site or every site at once.</p>
   <time datetime="2026-10-04">Released 2026-10-04</time>
 </li>
-<li class="card" data-search="gistpeek typescript chrome extension chrome extension a chrome side panel that summarizes the page with the browser&#39;s on-device ai and checks whether the point you meant to make survives. nothing leaves the device.">
+<li class="card" data-search="gistpeek typescript chrome extension chrome extension a chrome side panel that summarizes the page with the browser&#39;s on-device ai and checks whether the point you meant to make survives. the page text is never uploaded.">
   <h3><a href="https://github.com/printemps-tokyo/gistpeek">gistpeek</a></h3>
   <div class="meta"><span>Chrome extension</span><span>TypeScript</span></div>
-  <p>A Chrome side panel that summarizes the page with the browser&#39;s on-device AI and checks whether the point you meant to make survives. Nothing leaves the device.</p>
+  <p>A Chrome side panel that summarizes the page with the browser&#39;s on-device AI and checks whether the point you meant to make survives. The page text is never uploaded.</p>
   <time datetime="2026-08-31">Released 2026-08-31</time>
 </li>
 <li class="card" data-search="baselinefit rust cli cli audit css against web platform baseline both ways: features not yet safe for your target, and prefixes, @supports guards and polyfills you can now delete.">
@@ -341,10 +341,10 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   <p>Inspect JPEG XL files without decoding them: container boxes, codestream headers and web delivery checks.</p>
   <time datetime="2026-09-02">Released 2026-09-02</time>
 </li>
-<li class="card" data-search="stripcut rust cli cli slice a tall webtoon canvas between panels instead of through a face, as close to the target tile height as possible.">
+<li class="card" data-search="stripcut rust cli cli slice a tall webtoon canvas in the gutters between panels, as close to the target tile height as possible, and report any cut that has to go through the art.">
   <h3><a href="https://github.com/printemps-tokyo/stripcut">stripcut</a></h3>
   <div class="meta"><span>CLI</span><span>Rust</span></div>
-  <p>Slice a tall webtoon canvas between panels instead of through a face, as close to the target tile height as possible.</p>
+  <p>Slice a tall webtoon canvas in the gutters between panels, as close to the target tile height as possible, and report any cut that has to go through the art.</p>
   <time datetime="2026-08-12">Released 2026-08-12</time>
 </li>
 <li class="card" data-search="wallgen rust cli cli generative-art wallpapers seeded by the date: same day, same wallpaper, everywhere.">
@@ -469,6 +469,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   const empty = document.getElementById("empty");
   const cards = [...document.querySelectorAll("li.card")];
   const sections = [...document.querySelectorAll("section.cat")];
+  const links = new Map([...document.querySelectorAll(".toc a")].map((a) => [a.hash.slice(1), a]));
   const total = cards.length;
   const fmt = status.dataset.format;
   const norm = (s) => s.normalize("NFKC").toLowerCase();
@@ -480,7 +481,11 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       c.hidden = !hit;
       if (hit) shown++;
     }
-    for (const s of sections) s.hidden = !s.querySelector("li.card:not([hidden])");
+    for (const s of sections) {
+      s.hidden = !s.querySelector("li.card:not([hidden])");
+      const link = links.get(s.id);
+      if (link) link.hidden = s.hidden;
+    }
     empty.hidden = shown > 0;
     status.textContent = words.length ? fmt.replace("{n}", shown).replace("{total}", total) : "";
   };

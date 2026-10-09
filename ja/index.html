@@ -21,19 +21,19 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%23c2185b%22%2F%3E%3Ctext%20x%3D%2216%22%20y%3D%2222%22%20font-family%3D%22system-ui%2Csans-serif%22%20font-size%3D%2217%22%20font-weight%3D%22700%22%20fill%3D%22%23fff%22%20text-anchor%3D%22middle%22%3Ep%3C%2Ftext%3E%3C%2Fsvg%3E">
 <style>:root {
   --bg: #fbfaf7; --surface: #ffffff; --text: #1d1d1f; --muted: #5f6368; --line: #e4e1da;
-  --accent: #c2185b; --accent-soft: #fce4ec; --chip: #f1eee8; --focus: #1a73e8;
+  --accent: #c2185b; --accent-soft: #fce4ec; --chip: #f1eee8; --focus: #1a73e8; --field-line: #8a8580;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #15161a; --surface: #1d1f24; --text: #ececec; --muted: #a3a7ae; --line: #2e3138;
-    --accent: #f06292; --accent-soft: #3a2230; --chip: #262930; --focus: #8ab4f8;
+    --accent: #f06292; --accent-soft: #3a2230; --chip: #262930; --focus: #8ab4f8; --field-line: #6b7079;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #15161a; --surface: #1d1f24; --text: #ececec; --muted: #a3a7ae; --line: #2e3138;
-  --accent: #f06292; --accent-soft: #3a2230; --chip: #262930; --focus: #8ab4f8;
+  --accent: #f06292; --accent-soft: #3a2230; --chip: #262930; --focus: #8ab4f8; --field-line: #6b7079;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
@@ -61,7 +61,7 @@ header.site { border-bottom: 1px solid var(--line); }
 .tools .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
 .filter { display: flex; align-items: center; gap: 8px; flex: 1 1 260px; }
 .filter label { font-size: .875rem; color: var(--muted); white-space: nowrap; }
-.filter input { flex: 1; min-width: 0; font: inherit; font-size: .95rem; padding: 7px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--text); }
+.filter input { flex: 1; min-width: 0; font: inherit; font-size: .95rem; padding: 7px 12px; border: 1px solid var(--field-line); border-radius: 8px; background: var(--surface); color: var(--text); }
 .status { font-size: .8125rem; color: var(--muted); }
 .toc { display: flex; gap: 6px; overflow-x: auto; padding: 2px 0; scrollbar-width: thin; flex: 1 1 100%; }
 .toc a { flex: none; font-size: .8125rem; text-decoration: none; padding: 3px 10px; border-radius: 999px; background: var(--chip); }
@@ -141,10 +141,10 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   <p>Google Search Consoleのクリック・表示回数・CTR・掲載順位をターミナルで確認。1サイトの詳細も全サイトの一覧も出せます。</p>
   <time datetime="2026-10-04">公開 2026-10-04</time>
 </li>
-<li class="card" data-search="gistpeek typescript chrome拡張 chrome extension chrome内蔵のオンデバイスaiでページを要約し、伝えたい結論がaiに伝わるかを判定するサイドパネル。データは端末の外に出ません。">
+<li class="card" data-search="gistpeek typescript chrome拡張 chrome extension chrome内蔵のオンデバイスaiでページを要約し、伝えたい結論がaiに伝わるかを判定するサイドパネル。ページ本文は外部にアップロードしません。">
   <h3><a href="https://github.com/printemps-tokyo/gistpeek">gistpeek</a></h3>
   <div class="meta"><span>Chrome拡張</span><span>TypeScript</span></div>
-  <p>Chrome内蔵のオンデバイスAIでページを要約し、伝えたい結論がAIに伝わるかを判定するサイドパネル。データは端末の外に出ません。</p>
+  <p>Chrome内蔵のオンデバイスAIでページを要約し、伝えたい結論がAIに伝わるかを判定するサイドパネル。ページ本文は外部にアップロードしません。</p>
   <time datetime="2026-08-31">公開 2026-08-31</time>
 </li>
 <li class="card" data-search="baselinefit rust cli cli cssをweb platform baselineで双方向に監査。対象ブラウザでまだ危ない機能と、もう消せるベンダープレフィックス・@supports・ポリフィルを洗い出します。">
@@ -341,10 +341,10 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   <p>JPEG XLファイルをデコードせずに検査。コンテナ構造・コードストリームのヘッダ・Web配信向けのチェック。</p>
   <time datetime="2026-09-02">公開 2026-09-02</time>
 </li>
-<li class="card" data-search="stripcut rust cli cli 縦長のwebtoon原稿を、顔を切らずにコマの間で分割。目標の高さにできるだけ近い位置で切ります。">
+<li class="card" data-search="stripcut rust cli cli 縦長のwebtoon原稿を、目標の高さにできるだけ近いコマ間の余白で分割。余白がなく絵を横切るしかない箇所は警告します。">
   <h3><a href="https://github.com/printemps-tokyo/stripcut">stripcut</a></h3>
   <div class="meta"><span>CLI</span><span>Rust</span></div>
-  <p>縦長のWebtoon原稿を、顔を切らずにコマの間で分割。目標の高さにできるだけ近い位置で切ります。</p>
+  <p>縦長のWebtoon原稿を、目標の高さにできるだけ近いコマ間の余白で分割。余白がなく絵を横切るしかない箇所は警告します。</p>
   <time datetime="2026-08-12">公開 2026-08-12</time>
 </li>
 <li class="card" data-search="wallgen rust cli cli 日付をシードにしたジェネラティブアートの壁紙生成。同じ日ならどこでも同じ壁紙になります。">
@@ -469,6 +469,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   const empty = document.getElementById("empty");
   const cards = [...document.querySelectorAll("li.card")];
   const sections = [...document.querySelectorAll("section.cat")];
+  const links = new Map([...document.querySelectorAll(".toc a")].map((a) => [a.hash.slice(1), a]));
   const total = cards.length;
   const fmt = status.dataset.format;
   const norm = (s) => s.normalize("NFKC").toLowerCase();
@@ -480,7 +481,11 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       c.hidden = !hit;
       if (hit) shown++;
     }
-    for (const s of sections) s.hidden = !s.querySelector("li.card:not([hidden])");
+    for (const s of sections) {
+      s.hidden = !s.querySelector("li.card:not([hidden])");
+      const link = links.get(s.id);
+      if (link) link.hidden = s.hidden;
+    }
     empty.hidden = shown > 0;
     status.textContent = words.length ? fmt.replace("{n}", shown).replace("{total}", total) : "";
   };

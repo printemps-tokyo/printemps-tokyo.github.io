@@ -7,7 +7,8 @@
  * Usage:
  *   node build.mjs          write both pages
  *   node build.mjs --check  also compare data/repos.json with the organization's
- *                           public repositories on GitHub; exit 1 on a mismatch
+ *                           public repositories (forks aside) on GitHub; exit 1
+ *                           on a mismatch
  *
  * No dependencies. Node.js >= 20.
  */
@@ -73,9 +74,11 @@ function esc(s) {
 function load() {
   const data = JSON.parse(readFileSync(join(ROOT, "data/repos.json"), "utf8"));
   const errors = [];
+  for (const c of data.categories) if (!/^[a-z0-9-]+$/.test(c.id)) errors.push(`category "${c.id}": id must be [a-z0-9-]`);
   const ids = new Set(data.categories.map((c) => c.id));
   const names = new Set();
   for (const r of data.repos) {
+    if (!/^[A-Za-z0-9._-]+$/.test(r.name)) errors.push(`${r.name}: not a repository name`);
     if (names.has(r.name)) errors.push(`${r.name}: listed twice`);
     names.add(r.name);
     if (!ids.has(r.category)) errors.push(`${r.name}: unknown category "${r.category}"`);
@@ -97,19 +100,19 @@ function todayJst() {
 const CSS = `
 :root {
   --bg: #fbfaf7; --surface: #ffffff; --text: #1d1d1f; --muted: #5f6368; --line: #e4e1da;
-  --accent: #c2185b; --accent-soft: #fce4ec; --chip: #f1eee8; --focus: #1a73e8;
+  --accent: #c2185b; --accent-soft: #fce4ec; --chip: #f1eee8; --focus: #1a73e8; --field-line: #8a8580;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #15161a; --surface: #1d1f24; --text: #ececec; --muted: #a3a7ae; --line: #2e3138;
-    --accent: #f06292; --accent-soft: #3a2230; --chip: #262930; --focus: #8ab4f8;
+    --accent: #f06292; --accent-soft: #3a2230; --chip: #262930; --focus: #8ab4f8; --field-line: #6b7079;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #15161a; --surface: #1d1f24; --text: #ececec; --muted: #a3a7ae; --line: #2e3138;
-  --accent: #f06292; --accent-soft: #3a2230; --chip: #262930; --focus: #8ab4f8;
+  --accent: #f06292; --accent-soft: #3a2230; --chip: #262930; --focus: #8ab4f8; --field-line: #6b7079;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
@@ -137,7 +140,7 @@ header.site { border-bottom: 1px solid var(--line); }
 .tools .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
 .filter { display: flex; align-items: center; gap: 8px; flex: 1 1 260px; }
 .filter label { font-size: .875rem; color: var(--muted); white-space: nowrap; }
-.filter input { flex: 1; min-width: 0; font: inherit; font-size: .95rem; padding: 7px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--text); }
+.filter input { flex: 1; min-width: 0; font: inherit; font-size: .95rem; padding: 7px 12px; border: 1px solid var(--field-line); border-radius: 8px; background: var(--surface); color: var(--text); }
 .status { font-size: .8125rem; color: var(--muted); }
 .toc { display: flex; gap: 6px; overflow-x: auto; padding: 2px 0; scrollbar-width: thin; flex: 1 1 100%; }
 .toc a { flex: none; font-size: .8125rem; text-decoration: none; padding: 3px 10px; border-radius: 999px; background: var(--chip); }
@@ -175,6 +178,7 @@ const SCRIPT = `
   const empty = document.getElementById("empty");
   const cards = [...document.querySelectorAll("li.card")];
   const sections = [...document.querySelectorAll("section.cat")];
+  const links = new Map([...document.querySelectorAll(".toc a")].map((a) => [a.hash.slice(1), a]));
   const total = cards.length;
   const fmt = status.dataset.format;
   const norm = (s) => s.normalize("NFKC").toLowerCase();
@@ -186,7 +190,11 @@ const SCRIPT = `
       c.hidden = !hit;
       if (hit) shown++;
     }
-    for (const s of sections) s.hidden = !s.querySelector("li.card:not([hidden])");
+    for (const s of sections) {
+      s.hidden = !s.querySelector("li.card:not([hidden])");
+      const link = links.get(s.id);
+      if (link) link.hidden = s.hidden;
+    }
     empty.hidden = shown > 0;
     status.textContent = words.length ? fmt.replace("{n}", shown).replace("{total}", total) : "";
   };
@@ -206,21 +214,21 @@ function page(lang, data, updated) {
   const cards = (repos) =>
     repos
       .map((r) => {
-        const url = `https://github.com/${ORG}/${r.name}`;
+        const url = `https://github.com/${ORG}/${encodeURIComponent(r.name)}`;
         const search = [r.name, r.language, t.kinds[r.kind], r.kind, r[lang]].join(" ").normalize("NFKC").toLowerCase();
         return `<li class="card" data-search="${esc(search)}">
-  <h3><a href="${url}">${esc(r.name)}</a></h3>
+  <h3><a href="${esc(url)}">${esc(r.name)}</a></h3>
   <div class="meta"><span>${esc(t.kinds[r.kind])}</span><span>${esc(r.language)}</span></div>
   <p>${esc(r[lang])}</p>
-  <time datetime="${r.released}">${esc(t.released)} ${r.released}</time>
+  <time datetime="${esc(r.released)}">${esc(t.released)} ${esc(r.released)}</time>
 </li>`;
       })
       .join("\n");
 
   const sections = byCat
     .map(
-      (c) => `<section class="cat" id="${c.id}" aria-labelledby="h-${c.id}">
-<h2 id="h-${c.id}">${esc(c[lang])} <small>${esc(t.count(c.repos.length))}</small></h2>
+      (c) => `<section class="cat" id="${esc(c.id)}" aria-labelledby="h-${esc(c.id)}">
+<h2 id="h-${esc(c.id)}">${esc(c[lang])} <small>${esc(t.count(c.repos.length))}</small></h2>
 <ul class="grid">
 ${cards(c.repos)}
 </ul>
@@ -292,7 +300,7 @@ ${cards(c.repos)}
 </div>
 <span class="status" id="status" role="status" aria-live="polite" data-format="${esc(t.shown("{n}", "{total}"))}"></span>
 <nav class="toc" aria-label="${esc(t.contents)}">
-${byCat.map((c) => `<a href="#${c.id}">${esc(c[lang])}</a>`).join("\n")}
+${byCat.map((c) => `<a href="#${esc(c.id)}">${esc(c[lang])}</a>`).join("\n")}
 </nav>
 </div>
 </div>
@@ -320,7 +328,7 @@ async function check(data) {
     });
     if (!res.ok) throw new Error(`GitHub API: HTTP ${res.status}`);
     const batch = await res.json();
-    names.push(...batch.filter((r) => !r.archived && !r.fork).map((r) => r.name));
+    names.push(...batch.filter((r) => !r.fork).map((r) => r.name));
     if (batch.length < 100) break;
   }
   const self = `${ORG}.github.io`;
