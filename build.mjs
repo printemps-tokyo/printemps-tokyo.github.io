@@ -47,9 +47,9 @@ const TEXT = {
   ja: {
     path: "/ja/",
     file: "ja/index.html",
-    title: "printemps.tokyo オープンソース",
+    title: "プランタンのオープンソースツール・プログラム | printemps.tokyo",
     description: "printemps.tokyoが公開しているオープンソースの一覧。CLIツールやブラウザ拡張などを、それぞれ一言の説明付きでまとめています。",
-    heading: "オープンソース",
+    heading: "プランタンのオープンソースツール・プログラム",
     lead: "printemps.tokyoが公開している、Web解析・AI・開発・メディア・日々の仕事のための小さく実用的なツールです。どれも1つの仕事に絞っています。",
     count: (n) => `${n}件`,
     filter: "絞り込み",
