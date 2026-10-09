@@ -26,9 +26,9 @@ const TEXT = {
   en: {
     path: "/",
     file: "index.html",
-    title: "printemps.tokyo open source",
+    title: "printemps.tokyo open source tools and programs",
     description: "Small, practical open-source tools by printemps.tokyo: command-line tools, browser extensions and more, each with a one-line summary.",
-    heading: "Open source",
+    heading: "printemps.tokyo open source tools and programs",
     lead: "Small, practical tools by printemps.tokyo for web analytics, AI, development, media and everyday work, each focused on one job.",
     count: (n) => `${n} projects`,
     filter: "Filter",
