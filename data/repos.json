@@ -225,6 +225,11 @@
       "ja": "tmuxで動かしているClaude Codeのペインを監視し、入力待ちのものを知らせます。"
     },
     {
+      "name": "sl-neo", "category": "fun", "kind": "CLI", "language": "Rust", "released": "2026-10-13",
+      "en": "A modern sl: mistype ls and a shinkansen, Doctor Yellow, a Yamanote Line train, a steam locomotive or a maglev runs across your terminal in 24-bit color, with a delay board.",
+      "ja": "現代版のsl。lsを打ち間違えると、新幹線・ドクターイエロー・山手線・蒸気機関車・リニア風の列車が24bitカラーで端末を走ります。遅延情報の電光掲示板付き。"
+    },
+    {
       "name": "econtoy", "category": "fun", "kind": "CLI", "language": "Rust", "released": "2026-07-16",
       "en": "A tiny agent-based economy simulator: turn the interest-rate and money-supply knobs and watch inflation, booms and busts emerge. An educational toy.",
       "ja": "小さなエージェントベースの経済シミュレーター。金利とマネーサプライを動かして、インフレや好況・不況が生まれる様子を観察できます(教育用のおもちゃです)。"
