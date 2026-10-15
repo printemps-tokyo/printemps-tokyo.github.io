@@ -225,6 +225,11 @@
       "ja": "tmuxで動かしているClaude Codeのペインを監視し、入力待ちのものを知らせます。"
     },
     {
+      "name": "probsim", "category": "fun", "kind": "CLI", "language": "Rust", "released": "2026-10-15",
+      "en": "Watch probability paradoxes converge next to their exact answers: Monty Hall, the birthday paradox, gacha completion, the secretary problem, Buffon's needle and Benford's law, also on your own data.",
+      "ja": "確率のパラドックスをシミュレーションし、正解と並べて収束を見せます。モンティ・ホール、誕生日、コンプガチャ、秘書問題、ビュフォンの針、ベンフォードの法則(自分のデータも検定可)。"
+    },
+    {
       "name": "sl-neo", "category": "fun", "kind": "CLI", "language": "Rust", "released": "2026-10-13",
       "en": "A modern sl: mistype ls and a shinkansen, Doctor Yellow, a Yamanote Line train, a steam locomotive or a maglev runs across your terminal in 24-bit color, with a delay board.",
       "ja": "現代版のsl。lsを打ち間違えると、新幹線・ドクターイエロー・山手線・蒸気機関車・リニア風の列車が24bitカラーで端末を走ります。遅延情報の電光掲示板付き。"
