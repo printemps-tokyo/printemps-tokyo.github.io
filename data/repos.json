@@ -225,6 +225,11 @@
       "ja": "tmuxで動かしているClaude Codeのペインを監視し、入力待ちのものを知らせます。"
     },
     {
+      "name": "termbonsai", "category": "fun", "kind": "CLI", "language": "Rust", "released": "2026-10-20",
+      "en": "A bonsai that lives in your terminal: it grows while you keep it watered, wilts when you forget, follows the seasons, and fits in a tmux status line.",
+      "ja": "端末で育つ盆栽。水をやっている間だけ実際の時間で育ち、忘れるとしおれて枯れます。季節で花や紅葉に変わり、tmuxのステータスバーにも表示できます。"
+    },
+    {
       "name": "probsim", "category": "fun", "kind": "CLI", "language": "Rust", "released": "2026-10-15",
       "en": "Watch ten probability paradoxes converge next to their exact answers, from Monty Hall and gacha completion to Penney's game and Benford's law on your own data, with sweeps, coverage studies and a play mode.",
       "ja": "10種類の確率のパラドックスをシミュレーションし、正解と並べて収束を見せます。モンティ・ホール、コンプガチャ、ペニーのゲーム、ベンフォードの法則(自分のデータも)など。パラメータ走査や対話モード付き。"
