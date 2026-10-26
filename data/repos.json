@@ -225,6 +225,11 @@
       "ja": "tmuxで動かしているClaude Codeのペインを監視し、入力待ちのものを知らせます。"
     },
     {
+      "name": "dupsight", "category": "media", "kind": "CLI", "language": "Rust", "released": "2026-10-27",
+      "en": "Find near-duplicate images in your folders (resized, recompressed or lightly edited copies) by perceptual hashes, with the file to keep suggested and an HTML report. It only reports and never deletes.",
+      "ja": "フォルダ内の見た目がほぼ同じ画像(縮小・再圧縮・軽い編集をしたコピー)を知覚ハッシュで探し、残すファイルの提案とHTMLレポートを出します。報告のみで削除はしません。"
+    },
+    {
       "name": "termbonsai", "category": "fun", "kind": "CLI", "language": "Rust", "released": "2026-10-20",
       "en": "A bonsai that lives in your terminal: it grows while you keep it watered, wilts when you forget, follows the seasons, and fits in a tmux status line.",
       "ja": "端末で育つ盆栽。水をやっている間だけ実際の時間で育ち、忘れるとしおれて枯れます。季節で花や紅葉に変わり、tmuxのステータスバーにも表示できます。"
