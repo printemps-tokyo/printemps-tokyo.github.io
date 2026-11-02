@@ -230,6 +230,11 @@
       "ja": "フォルダ内の見た目がほぼ同じ画像(縮小・再圧縮・軽い編集をしたコピー)を知覚ハッシュで探し、残すファイルの提案とHTMLレポートを出します。報告のみで削除はしません。"
     },
     {
+      "name": "iconhunt", "category": "media", "kind": "CLI", "language": "Rust", "released": "2026-11-02",
+      "en": "Search open-source icons (Iconify) from the terminal, in English or Japanese, with previews drawn in the terminal and each set's license shown as a class (attribution, copyleft, non-commercial and so on). Saves SVG or PNG and writes the credits for the icons you used.",
+      "ja": "オープンソースのアイコン(Iconify)を端末から英語や日本語で検索。端末内プレビューに加え、各セットのライセンスを分類(クレジット必要・コピーレフト・非商用など)して表示します。SVG/PNGで保存でき、使ったアイコンのクレジット表記も生成します。"
+    },
+    {
       "name": "termbonsai", "category": "fun", "kind": "CLI", "language": "Rust", "released": "2026-10-20",
       "en": "A bonsai that lives in your terminal: it grows while you keep it watered, wilts when you forget, follows the seasons, and fits in a tmux status line.",
       "ja": "端末で育つ盆栽。水をやっている間だけ実際の時間で育ち、忘れるとしおれて枯れます。季節で花や紅葉に変わり、tmuxのステータスバーにも表示できます。"
