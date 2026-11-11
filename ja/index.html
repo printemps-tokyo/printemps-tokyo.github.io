@@ -79,7 +79,9 @@ li.card:hover { border-color: var(--accent); }
 .meta { display: flex; flex-wrap: wrap; gap: 6px; font-size: .75rem; color: var(--muted); }
 .meta span { background: var(--chip); padding: 1px 8px; border-radius: 999px; }
 .card p { margin: 0; font-size: .9rem; }
-.card time { margin-top: auto; font-size: .75rem; color: var(--muted); }
+.card .foot { margin-top: auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; font-size: .75rem; color: var(--muted); }
+.card .foot a { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.card .foot a:hover { color: var(--accent); }
 .empty { padding: 32px 0; color: var(--muted); }
 footer { border-top: 1px solid var(--line); padding: 20px 0 32px; font-size: .8125rem; color: var(--muted); }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
@@ -133,43 +135,43 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   <h3><a href="https://github.com/printemps-tokyo/sitepulse">sitepulse</a></h3>
   <div class="meta"><span>CLI</span><span>TypeScript</span></div>
   <p>GA4とGoogle Search Consoleの数値をホスト名ごとに1行で横並び表示。ユーザー数・セッション・PVとクリック・表示回数・CTR・掲載順位を同じ期間で比べられます。</p>
-  <time datetime="2026-10-07">公開 2026-10-07</time>
+  <div class="foot"><time datetime="2026-10-07">公開 2026-10-07</time><a href="https://github.com/printemps-tokyo/sitepulse/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="gsc typescript cli cli google search consoleのクリック・表示回数・ctr・掲載順位をターミナルで確認。1サイトの詳細も全サイトの一覧も出せます。">
   <h3><a href="https://github.com/printemps-tokyo/gsc">gsc</a></h3>
   <div class="meta"><span>CLI</span><span>TypeScript</span></div>
   <p>Google Search Consoleのクリック・表示回数・CTR・掲載順位をターミナルで確認。1サイトの詳細も全サイトの一覧も出せます。</p>
-  <time datetime="2026-10-04">公開 2026-10-04</time>
+  <div class="foot"><time datetime="2026-10-04">公開 2026-10-04</time><a href="https://github.com/printemps-tokyo/gsc/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="gistpeek typescript chrome拡張 chrome extension chrome内蔵のオンデバイスaiでページを要約し、伝えたい結論がaiに伝わるかを判定するサイドパネル。ページ本文は外部にアップロードしません。">
   <h3><a href="https://github.com/printemps-tokyo/gistpeek">gistpeek</a></h3>
   <div class="meta"><span>Chrome拡張</span><span>TypeScript</span></div>
   <p>Chrome内蔵のオンデバイスAIでページを要約し、伝えたい結論がAIに伝わるかを判定するサイドパネル。ページ本文は外部にアップロードしません。</p>
-  <time datetime="2026-08-31">公開 2026-08-31</time>
+  <div class="foot"><time datetime="2026-08-31">公開 2026-08-31</time><a href="https://github.com/printemps-tokyo/gistpeek/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="baselinefit rust cli cli cssをweb platform baselineで双方向に監査。対象ブラウザでまだ危ない機能と、もう消せるベンダープレフィックス・@supports・ポリフィルを洗い出します。">
   <h3><a href="https://github.com/printemps-tokyo/baselinefit">baselinefit</a></h3>
   <div class="meta"><span>CLI</span><span>Rust</span></div>
   <p>CSSをWeb Platform Baselineで双方向に監査。対象ブラウザでまだ危ない機能と、もう消せるベンダープレフィックス・@supports・ポリフィルを洗い出します。</p>
-  <time datetime="2026-08-12">公開 2026-08-12</time>
+  <div class="foot"><time datetime="2026-08-12">公開 2026-08-12</time><a href="https://github.com/printemps-tokyo/baselinefit/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="cruxpeek go cli cli chrome ux reportから実ユーザーのcore web vitals(lcp・inp・clsのp75)を取得し、公式のしきい値で判定。推移のスパークラインも表示。">
   <h3><a href="https://github.com/printemps-tokyo/cruxpeek">cruxpeek</a></h3>
   <div class="meta"><span>CLI</span><span>Go</span></div>
   <p>Chrome UX Reportから実ユーザーのCore Web Vitals(LCP・INP・CLSのp75)を取得し、公式のしきい値で判定。推移のスパークラインも表示。</p>
-  <time datetime="2026-07-24">公開 2026-07-24</time>
+  <div class="foot"><time datetime="2026-07-24">公開 2026-07-24</time><a href="https://github.com/printemps-tokyo/cruxpeek/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="httppeek go cli cli urlのリダイレクト経路・キャッシュとセキュリティヘッダ・tls証明書・フェーズ別の所要時間を1コマンドで確認。">
   <h3><a href="https://github.com/printemps-tokyo/httppeek">httppeek</a></h3>
   <div class="meta"><span>CLI</span><span>Go</span></div>
   <p>URLのリダイレクト経路・キャッシュとセキュリティヘッダ・TLS証明書・フェーズ別の所要時間を1コマンドで確認。</p>
-  <time datetime="2026-07-19">公開 2026-07-19</time>
+  <div class="foot"><time datetime="2026-07-19">公開 2026-07-19</time><a href="https://github.com/printemps-tokyo/httppeek/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="ga4 typescript cli cli ga4プロパティの直近のユーザー数・セッション・pvをターミナルで確認。">
   <h3><a href="https://github.com/printemps-tokyo/ga4">ga4</a></h3>
   <div class="meta"><span>CLI</span><span>TypeScript</span></div>
   <p>GA4プロパティの直近のユーザー数・セッション・PVをターミナルで確認。</p>
-  <time datetime="2026-06-21">公開 2026-06-21</time>
+  <div class="foot"><time datetime="2026-06-21">公開 2026-06-21</time><a href="https://github.com/printemps-tokyo/ga4/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 </ul>
 </section>
@@ -180,43 +182,43 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   <h3><a href="https://github.com/printemps-tokyo/agentsdoc">agentsdoc</a></h3>
   <div class="meta"><span>CLI</span><span>Rust</span></div>
   <p>AGENTS.md・CLAUDE.md・Cursorのルール・Copilotの指示ファイルを監査し、ツールをまたいで正しく読まれるかを確認します。</p>
-  <time datetime="2026-07-29">公開 2026-07-29</time>
+  <div class="foot"><time datetime="2026-07-29">公開 2026-07-29</time><a href="https://github.com/printemps-tokyo/agentsdoc/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="mcpfit go cli cli mcpサーバーがステートレス版の仕様に対応できているかを監査。セッション依存・古いスキーマ・非推奨メソッド・キャッシュヒント不足を指摘します。">
   <h3><a href="https://github.com/printemps-tokyo/mcpfit">mcpfit</a></h3>
   <div class="meta"><span>CLI</span><span>Go</span></div>
   <p>MCPサーバーがステートレス版の仕様に対応できているかを監査。セッション依存・古いスキーマ・非推奨メソッド・キャッシュヒント不足を指摘します。</p>
-  <time datetime="2026-07-24">公開 2026-07-24</time>
+  <div class="foot"><time datetime="2026-07-24">公開 2026-07-24</time><a href="https://github.com/printemps-tokyo/mcpfit/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="llmcost python cli cli openai・anthropic・google・xai・deepseekのllm api料金を見積もり・比較。バージョン付きの料金表でオフライン計算します。">
   <h3><a href="https://github.com/printemps-tokyo/llmcost">llmcost</a></h3>
   <div class="meta"><span>CLI</span><span>Python</span></div>
   <p>OpenAI・Anthropic・Google・xAI・DeepSeekのLLM API料金を見積もり・比較。バージョン付きの料金表でオフライン計算します。</p>
-  <time datetime="2026-07-19">公開 2026-07-19</time>
+  <div class="foot"><time datetime="2026-07-19">公開 2026-07-19</time><a href="https://github.com/printemps-tokyo/llmcost/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="mcppeek typescript cli cli mcpサーバーのツール・リソース・プロンプトを一覧し、スキーマを検査し、ツールを呼び出せます。">
   <h3><a href="https://github.com/printemps-tokyo/mcppeek">mcppeek</a></h3>
   <div class="meta"><span>CLI</span><span>TypeScript</span></div>
   <p>MCPサーバーのツール・リソース・プロンプトを一覧し、スキーマを検査し、ツールを呼び出せます。</p>
-  <time datetime="2026-07-09">公開 2026-07-09</time>
+  <div class="foot"><time datetime="2026-07-09">公開 2026-07-09</time><a href="https://github.com/printemps-tokyo/mcppeek/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="ytsum typescript cli cli youtubeの字幕をyt-dlp経由で取得し、llmに渡しやすいきれいなテキストにします。">
   <h3><a href="https://github.com/printemps-tokyo/ytsum">ytsum</a></h3>
   <div class="meta"><span>CLI</span><span>TypeScript</span></div>
   <p>YouTubeの字幕をyt-dlp経由で取得し、LLMに渡しやすいきれいなテキストにします。</p>
-  <time datetime="2026-06-15">公開 2026-06-15</time>
+  <div class="foot"><time datetime="2026-06-15">公開 2026-06-15</time><a href="https://github.com/printemps-tokyo/ytsum/releases/tag/v0.2.0" aria-label="最新リリース: v0.2.0">v0.2.0</a></div>
 </li>
 <li class="card" data-search="repotome rust cli cli gitリポジトリをllmに渡しやすい1つのテキストにまとめます。">
   <h3><a href="https://github.com/printemps-tokyo/repotome">repotome</a></h3>
   <div class="meta"><span>CLI</span><span>Rust</span></div>
   <p>gitリポジトリをLLMに渡しやすい1つのテキストにまとめます。</p>
-  <time datetime="2026-06-14">公開 2026-06-14</time>
+  <div class="foot"><time datetime="2026-06-14">公開 2026-06-14</time><a href="https://github.com/printemps-tokyo/repotome/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="imagine typescript cli cli 1つのプロンプトで複数のai(openai・gemini・fal)に画像を同時生成させるcli。">
   <h3><a href="https://github.com/printemps-tokyo/imagine">imagine</a></h3>
   <div class="meta"><span>CLI</span><span>TypeScript</span></div>
   <p>1つのプロンプトで複数のAI(OpenAI・Gemini・fal)に画像を同時生成させるCLI。</p>
-  <time datetime="2026-06-13">公開 2026-06-13</time>
+  <div class="foot"><time datetime="2026-06-13">公開 2026-06-13</time><a href="https://github.com/printemps-tokyo/imagine/releases/tag/v0.2.0" aria-label="最新リリース: v0.2.0">v0.2.0</a></div>
 </li>
 </ul>
 </section>
@@ -227,49 +229,49 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   <h3><a href="https://github.com/printemps-tokyo/git3ready">git3ready</a></h3>
   <div class="meta"><span>CLI</span><span>Rust</span></div>
   <p>Git 3.0の既定値変更で壊れるスクリプト・フック・テスト・CIを検出し、新しい既定値でのリハーサル実行もできます。</p>
-  <time datetime="2026-09-23">公開 2026-09-23</time>
+  <div class="foot"><time datetime="2026-09-23">公開 2026-09-23</time><a href="https://github.com/printemps-tokyo/git3ready/releases/tag/v0.2.0" aria-label="最新リリース: v0.2.0">v0.2.0</a></div>
 </li>
 <li class="card" data-search="sheetpack rust cli cli ci向けの決定論的なスプライトアトラス生成ツール。texturepacker形式json・phaser 3・godot 4・cssを出力し、古いアトラスを検出するチェックモード付き。">
   <h3><a href="https://github.com/printemps-tokyo/sheetpack">sheetpack</a></h3>
   <div class="meta"><span>CLI</span><span>Rust</span></div>
   <p>CI向けの決定論的なスプライトアトラス生成ツール。TexturePacker形式JSON・Phaser 3・Godot 4・CSSを出力し、古いアトラスを検出するチェックモード付き。</p>
-  <time datetime="2026-08-19">公開 2026-08-19</time>
+  <div class="foot"><time datetime="2026-08-19">公開 2026-08-19</time><a href="https://github.com/printemps-tokyo/sheetpack/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="sunsetscan rust cli cli 提供終了日が発表済みのapiに依存するコードを検出し、残り日数と公式の移行先を示します。">
   <h3><a href="https://github.com/printemps-tokyo/sunsetscan">sunsetscan</a></h3>
   <div class="meta"><span>CLI</span><span>Rust</span></div>
   <p>提供終了日が発表済みのAPIに依存するコードを検出し、残り日数と公式の移行先を示します。</p>
-  <time datetime="2026-08-11">公開 2026-08-11</time>
+  <div class="foot"><time datetime="2026-08-11">公開 2026-08-11</time><a href="https://github.com/printemps-tokyo/sunsetscan/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="readyproof rust cli cli ossリポジトリを、利用企業が確認するセキュリティ項目(security.md・ライセンス・ロックファイル・ciテスト・actionsの固定など)で監査します。">
   <h3><a href="https://github.com/printemps-tokyo/readyproof">readyproof</a></h3>
   <div class="meta"><span>CLI</span><span>Rust</span></div>
   <p>OSSリポジトリを、利用企業が確認するセキュリティ項目(SECURITY.md・ライセンス・ロックファイル・CIテスト・Actionsの固定など)で監査します。</p>
-  <time datetime="2026-07-26">公開 2026-07-26</time>
+  <div class="foot"><time datetime="2026-07-26">公開 2026-07-26</time><a href="https://github.com/printemps-tokyo/readyproof/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="jwtpeek typescript cli cli jwtをオフラインでデコード・確認。署名の検証もできます。">
   <h3><a href="https://github.com/printemps-tokyo/jwtpeek">jwtpeek</a></h3>
   <div class="meta"><span>CLI</span><span>TypeScript</span></div>
   <p>JWTをオフラインでデコード・確認。署名の検証もできます。</p>
-  <time datetime="2026-06-26">公開 2026-06-26</time>
+  <div class="foot"><time datetime="2026-06-26">公開 2026-06-26</time><a href="https://github.com/printemps-tokyo/jwtpeek/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="whyignore rust cli cli あるパスにどの.gitignoreルールが効いているかを、gitを呼ばずに説明します。">
   <h3><a href="https://github.com/printemps-tokyo/whyignore">whyignore</a></h3>
   <div class="meta"><span>CLI</span><span>Rust</span></div>
   <p>あるパスにどの.gitignoreルールが効いているかを、Gitを呼ばずに説明します。</p>
-  <time datetime="2026-06-23">公開 2026-06-23</time>
+  <div class="foot"><time datetime="2026-06-23">公開 2026-06-23</time><a href="https://github.com/printemps-tokyo/whyignore/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="cronpeek typescript cli cli cron式をわかりやすい言葉で説明し、次回以降の実行日時を表示します。">
   <h3><a href="https://github.com/printemps-tokyo/cronpeek">cronpeek</a></h3>
   <div class="meta"><span>CLI</span><span>TypeScript</span></div>
   <p>cron式をわかりやすい言葉で説明し、次回以降の実行日時を表示します。</p>
-  <time datetime="2026-06-22">公開 2026-06-22</time>
+  <div class="foot"><time datetime="2026-06-22">公開 2026-06-22</time><a href="https://github.com/printemps-tokyo/cronpeek/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="oss-starter typescript テンプレート template ci・リリース自動化・コミュニティファイル同梱のtypescript製cliスターターテンプレート。">
   <h3><a href="https://github.com/printemps-tokyo/oss-starter">oss-starter</a></h3>
   <div class="meta"><span>テンプレート</span><span>TypeScript</span></div>
   <p>CI・リリース自動化・コミュニティファイル同梱のTypeScript製CLIスターターテンプレート。</p>
-  <time datetime="2026-06-13">公開 2026-06-13</time>
+  <div class="foot"><time datetime="2026-06-13">公開 2026-06-13</time></div>
 </li>
 </ul>
 </section>
@@ -280,43 +282,43 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   <h3><a href="https://github.com/printemps-tokyo/leak-museum">leak-museum</a></h3>
   <div class="meta"><span>リポジトリ</span><span>JavaScript</span></div>
   <p>gitでのシークレット管理の悪い例を集めた見学コース。偽の認証情報で再現したアンチパターンと修正方法を対にしています。シークレットスキャナのテスト用データとしても使えます。</p>
-  <time datetime="2026-07-12">公開 2026-07-12</time>
+  <div class="foot"><time datetime="2026-07-12">公開 2026-07-12</time></div>
 </li>
 <li class="card" data-search="imappeek typescript cli cli imapメールボックスの最近のメールをターミナルで確認。ヘッダ一覧と本文のテキスト表示ができます。">
   <h3><a href="https://github.com/printemps-tokyo/imappeek">imappeek</a></h3>
   <div class="meta"><span>CLI</span><span>TypeScript</span></div>
   <p>IMAPメールボックスの最近のメールをターミナルで確認。ヘッダ一覧と本文のテキスト表示ができます。</p>
-  <time datetime="2026-07-07">公開 2026-07-07</time>
+  <div class="foot"><time datetime="2026-07-07">公開 2026-07-07</time><a href="https://github.com/printemps-tokyo/imappeek/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="dnspeek typescript cli cli ドメインのメール認証(spf・dkim・dmarc)と主要なdnsレコードを、わかりやすい言葉で診断します。">
   <h3><a href="https://github.com/printemps-tokyo/dnspeek">dnspeek</a></h3>
   <div class="meta"><span>CLI</span><span>TypeScript</span></div>
   <p>ドメインのメール認証(SPF・DKIM・DMARC)と主要なDNSレコードを、わかりやすい言葉で診断します。</p>
-  <time datetime="2026-07-02">公開 2026-07-02</time>
+  <div class="foot"><time datetime="2026-07-02">公開 2026-07-02</time><a href="https://github.com/printemps-tokyo/dnspeek/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="mailpeek typescript cli cli .eml/.msgのメールファイルをターミナルで読めます。ヘッダ・本文・htmlのテキスト化、htmlのローカル表示に対応。">
   <h3><a href="https://github.com/printemps-tokyo/mailpeek">mailpeek</a></h3>
   <div class="meta"><span>CLI</span><span>TypeScript</span></div>
   <p>.eml/.msgのメールファイルをターミナルで読めます。ヘッダ・本文・HTMLのテキスト化、HTMLのローカル表示に対応。</p>
-  <time datetime="2026-07-01">公開 2026-07-01</time>
+  <div class="foot"><time datetime="2026-07-01">公開 2026-07-01</time><a href="https://github.com/printemps-tokyo/mailpeek/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="certpeek typescript cli cli x.509/tls証明書をファイルからオフラインで、またはurlから直接確認します。">
   <h3><a href="https://github.com/printemps-tokyo/certpeek">certpeek</a></h3>
   <div class="meta"><span>CLI</span><span>TypeScript</span></div>
   <p>X.509/TLS証明書をファイルからオフラインで、またはURLから直接確認します。</p>
-  <time datetime="2026-06-28">公開 2026-06-28</time>
+  <div class="foot"><time datetime="2026-06-28">公開 2026-06-28</time><a href="https://github.com/printemps-tokyo/certpeek/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="redact rust cli cli ログやテキストを共有する前に、シークレットや個人情報を取り除きます。">
   <h3><a href="https://github.com/printemps-tokyo/redact">redact</a></h3>
   <div class="meta"><span>CLI</span><span>Rust</span></div>
   <p>ログやテキストを共有する前に、シークレットや個人情報を取り除きます。</p>
-  <time datetime="2026-06-20">公開 2026-06-20</time>
+  <div class="foot"><time datetime="2026-06-20">公開 2026-06-20</time><a href="https://github.com/printemps-tokyo/redact/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="otp rust cli cli ローカルのシークレットファイルからtotpのワンタイムパスワードを生成し、クリップボードにコピーします。">
   <h3><a href="https://github.com/printemps-tokyo/otp">otp</a></h3>
   <div class="meta"><span>CLI</span><span>Rust</span></div>
   <p>ローカルのシークレットファイルからTOTPのワンタイムパスワードを生成し、クリップボードにコピーします。</p>
-  <time datetime="2026-06-19">公開 2026-06-19</time>
+  <div class="foot"><time datetime="2026-06-19">公開 2026-06-19</time><a href="https://github.com/printemps-tokyo/otp/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 </ul>
 </section>
@@ -327,67 +329,67 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   <h3><a href="https://github.com/printemps-tokyo/iconhunt">iconhunt</a></h3>
   <div class="meta"><span>CLI</span><span>Rust</span></div>
   <p>オープンソースのアイコン(Iconify)を端末から英語や日本語で検索。端末内プレビューに加え、各セットのライセンスを分類(クレジット必要・コピーレフト・非商用など)して表示します。SVG/PNGで保存でき、使ったアイコンのクレジット表記も生成します。</p>
-  <time datetime="2026-11-02">公開 2026-11-02</time>
+  <div class="foot"><time datetime="2026-11-02">公開 2026-11-02</time><a href="https://github.com/printemps-tokyo/iconhunt/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="dupsight rust cli cli フォルダ内の見た目がほぼ同じ画像(縮小・再圧縮・軽い編集をしたコピー)を知覚ハッシュで探し、残すファイルの提案とhtmlレポートを出します。報告のみで削除はしません。">
   <h3><a href="https://github.com/printemps-tokyo/dupsight">dupsight</a></h3>
   <div class="meta"><span>CLI</span><span>Rust</span></div>
   <p>フォルダ内の見た目がほぼ同じ画像(縮小・再圧縮・軽い編集をしたコピー)を知覚ハッシュで探し、残すファイルの提案とHTMLレポートを出します。報告のみで削除はしません。</p>
-  <time datetime="2026-10-27">公開 2026-10-27</time>
+  <div class="foot"><time datetime="2026-10-27">公開 2026-10-27</time><a href="https://github.com/printemps-tokyo/dupsight/releases/tag/v0.1.1" aria-label="最新リリース: v0.1.1">v0.1.1</a></div>
 </li>
 <li class="card" data-search="fxlfit rust cli cli 固定レイアウトepub(漫画・絵本)の入稿前チェック。レイアウトとviewport・画像の容量・epub accessibility 1.1のメタデータを確認します。">
   <h3><a href="https://github.com/printemps-tokyo/fxlfit">fxlfit</a></h3>
   <div class="meta"><span>CLI</span><span>Rust</span></div>
   <p>固定レイアウトEPUB(漫画・絵本)の入稿前チェック。レイアウトとviewport・画像の容量・EPUB Accessibility 1.1のメタデータを確認します。</p>
-  <time datetime="2026-09-13">公開 2026-09-13</time>
+  <div class="foot"><time datetime="2026-09-13">公開 2026-09-13</time><a href="https://github.com/printemps-tokyo/fxlfit/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="palettefit rust cli cli キャラクター絵やブランド素材の配色ズレを監査。基準画像からパレットを抽出し、他の画像をciede2000で採点します。">
   <h3><a href="https://github.com/printemps-tokyo/palettefit">palettefit</a></h3>
   <div class="meta"><span>CLI</span><span>Rust</span></div>
   <p>キャラクター絵やブランド素材の配色ズレを監査。基準画像からパレットを抽出し、他の画像をCIEDE2000で採点します。</p>
-  <time datetime="2026-09-13">公開 2026-09-13</time>
+  <div class="foot"><time datetime="2026-09-13">公開 2026-09-13</time><a href="https://github.com/printemps-tokyo/palettefit/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="jxlpeek rust cli cli jpeg xlファイルをデコードせずに検査。コンテナ構造・コードストリームのヘッダ・web配信向けのチェック。">
   <h3><a href="https://github.com/printemps-tokyo/jxlpeek">jxlpeek</a></h3>
   <div class="meta"><span>CLI</span><span>Rust</span></div>
   <p>JPEG XLファイルをデコードせずに検査。コンテナ構造・コードストリームのヘッダ・Web配信向けのチェック。</p>
-  <time datetime="2026-09-02">公開 2026-09-02</time>
+  <div class="foot"><time datetime="2026-09-02">公開 2026-09-02</time><a href="https://github.com/printemps-tokyo/jxlpeek/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="stripcut rust cli cli 縦長のwebtoon原稿を、目標の高さにできるだけ近いコマ間の余白で分割。余白がなく絵を横切るしかない箇所は警告します。">
   <h3><a href="https://github.com/printemps-tokyo/stripcut">stripcut</a></h3>
   <div class="meta"><span>CLI</span><span>Rust</span></div>
   <p>縦長のWebtoon原稿を、目標の高さにできるだけ近いコマ間の余白で分割。余白がなく絵を横切るしかない箇所は警告します。</p>
-  <time datetime="2026-08-12">公開 2026-08-12</time>
+  <div class="foot"><time datetime="2026-08-12">公開 2026-08-12</time><a href="https://github.com/printemps-tokyo/stripcut/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="wallgen rust cli cli 日付をシードにしたジェネラティブアートの壁紙生成。同じ日ならどこでも同じ壁紙になります。">
   <h3><a href="https://github.com/printemps-tokyo/wallgen">wallgen</a></h3>
   <div class="meta"><span>CLI</span><span>Rust</span></div>
   <p>日付をシードにしたジェネラティブアートの壁紙生成。同じ日ならどこでも同じ壁紙になります。</p>
-  <time datetime="2026-07-19">公開 2026-07-19</time>
+  <div class="foot"><time datetime="2026-07-19">公開 2026-07-19</time><a href="https://github.com/printemps-tokyo/wallgen/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="qrgen rust cli cli qrコードをpng・svg・ターミナル表示でローカル生成します。">
   <h3><a href="https://github.com/printemps-tokyo/qrgen">qrgen</a></h3>
   <div class="meta"><span>CLI</span><span>Rust</span></div>
   <p>QRコードをPNG・SVG・ターミナル表示でローカル生成します。</p>
-  <time datetime="2026-06-18">公開 2026-06-18</time>
+  <div class="foot"><time datetime="2026-06-18">公開 2026-06-18</time><a href="https://github.com/printemps-tokyo/qrgen/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="subtidy typescript cli cli .srt/.vtt字幕ファイルの整形・タイミング調整・形式変換。">
   <h3><a href="https://github.com/printemps-tokyo/subtidy">subtidy</a></h3>
   <div class="meta"><span>CLI</span><span>TypeScript</span></div>
   <p>.srt/.vtt字幕ファイルの整形・タイミング調整・形式変換。</p>
-  <time datetime="2026-06-17">公開 2026-06-17</time>
+  <div class="foot"><time datetime="2026-06-17">公開 2026-06-17</time><a href="https://github.com/printemps-tokyo/subtidy/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="placehold rust cli cli サイズ表記入りの単色ダミー画像をローカルで生成します。">
   <h3><a href="https://github.com/printemps-tokyo/placehold">placehold</a></h3>
   <div class="meta"><span>CLI</span><span>Rust</span></div>
   <p>サイズ表記入りの単色ダミー画像をローカルで生成します。</p>
-  <time datetime="2026-06-16">公開 2026-06-16</time>
+  <div class="foot"><time datetime="2026-06-16">公開 2026-06-16</time><a href="https://github.com/printemps-tokyo/placehold/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="vshrink typescript cli cli 動画を目標サイズに縮める・変換する・結合する・gifにする、ffmpegのヘルパーcli。">
   <h3><a href="https://github.com/printemps-tokyo/vshrink">vshrink</a></h3>
   <div class="meta"><span>CLI</span><span>TypeScript</span></div>
   <p>動画を目標サイズに縮める・変換する・結合する・GIFにする、ffmpegのヘルパーCLI。</p>
-  <time datetime="2026-06-13">公開 2026-06-13</time>
+  <div class="foot"><time datetime="2026-06-13">公開 2026-06-13</time><a href="https://github.com/printemps-tokyo/vshrink/releases/tag/v0.3.0" aria-label="最新リリース: v0.3.0">v0.3.0</a></div>
 </li>
 </ul>
 </section>
@@ -398,31 +400,31 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   <h3><a href="https://github.com/printemps-tokyo/pagemods">pagemods</a></h3>
   <div class="meta"><span>Chrome拡張</span><span>TypeScript</span></div>
   <p>機能をモジュールとして足していくChrome拡張。フォーム自動入力・フォーム一覧・ページのメタ情報(SEOとリンクプレビュー)・サイト別CSS・環境切替・画像一括ダウンロード・タブ自動リロード。</p>
-  <time datetime="2026-09-13">公開 2026-09-13</time>
+  <div class="foot"><time datetime="2026-09-13">公開 2026-09-13</time><a href="https://github.com/printemps-tokyo/pagemods/releases/tag/v0.3.0" aria-label="最新リリース: v0.3.0">v0.3.0</a></div>
 </li>
 <li class="card" data-search="fleetwatch typescript cli cli tmuxで動かしているclaude codeのペインを監視し、入力待ちのものを知らせます。">
   <h3><a href="https://github.com/printemps-tokyo/fleetwatch">fleetwatch</a></h3>
   <div class="meta"><span>CLI</span><span>TypeScript</span></div>
   <p>tmuxで動かしているClaude Codeのペインを監視し、入力待ちのものを知らせます。</p>
-  <time datetime="2026-06-26">公開 2026-06-26</time>
+  <div class="foot"><time datetime="2026-06-26">公開 2026-06-26</time><a href="https://github.com/printemps-tokyo/fleetwatch/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="trendcat typescript cli cli hacker news・reddit・wikipedia・はてな・googleニュースのいま話題のものをまとめて表示します。">
   <h3><a href="https://github.com/printemps-tokyo/trendcat">trendcat</a></h3>
   <div class="meta"><span>CLI</span><span>TypeScript</span></div>
   <p>Hacker News・Reddit・Wikipedia・はてな・Googleニュースのいま話題のものをまとめて表示します。</p>
-  <time datetime="2026-06-21">公開 2026-06-21</time>
+  <div class="foot"><time datetime="2026-06-21">公開 2026-06-21</time><a href="https://github.com/printemps-tokyo/trendcat/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="daylog typescript cli cli gitとaiコーディングツールの履歴から、1日の開発作業をダイジェストにまとめます。">
   <h3><a href="https://github.com/printemps-tokyo/daylog">daylog</a></h3>
   <div class="meta"><span>CLI</span><span>TypeScript</span></div>
   <p>gitとAIコーディングツールの履歴から、1日の開発作業をダイジェストにまとめます。</p>
-  <time datetime="2026-06-19">公開 2026-06-19</time>
+  <div class="foot"><time datetime="2026-06-19">公開 2026-06-19</time><a href="https://github.com/printemps-tokyo/daylog/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="freeslots typescript cli cli .icsカレンダーから、業務時間内の空き時間を打ち合わせ候補として書き出します。">
   <h3><a href="https://github.com/printemps-tokyo/freeslots">freeslots</a></h3>
   <div class="meta"><span>CLI</span><span>TypeScript</span></div>
   <p>.icsカレンダーから、業務時間内の空き時間を打ち合わせ候補として書き出します。</p>
-  <time datetime="2026-06-14">公開 2026-06-14</time>
+  <div class="foot"><time datetime="2026-06-14">公開 2026-06-14</time><a href="https://github.com/printemps-tokyo/freeslots/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 </ul>
 </section>
@@ -433,55 +435,55 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   <h3><a href="https://github.com/printemps-tokyo/termbonsai">termbonsai</a></h3>
   <div class="meta"><span>CLI</span><span>Rust</span></div>
   <p>端末で育つ盆栽。水をやっている間だけ実際の時間で育ち、忘れるとしおれて枯れます。季節で花や紅葉に変わり、tmuxのステータスバーにも表示できます。</p>
-  <time datetime="2026-10-20">公開 2026-10-20</time>
+  <div class="foot"><time datetime="2026-10-20">公開 2026-10-20</time><a href="https://github.com/printemps-tokyo/termbonsai/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="probsim rust cli cli 10種類の確率のパラドックスをシミュレーションし、正解と並べて収束を見せます。モンティ・ホール、コンプガチャ、ペニーのゲーム、ベンフォードの法則(自分のデータも)など。パラメータ走査や対話モード付き。">
   <h3><a href="https://github.com/printemps-tokyo/probsim">probsim</a></h3>
   <div class="meta"><span>CLI</span><span>Rust</span></div>
   <p>10種類の確率のパラドックスをシミュレーションし、正解と並べて収束を見せます。モンティ・ホール、コンプガチャ、ペニーのゲーム、ベンフォードの法則(自分のデータも)など。パラメータ走査や対話モード付き。</p>
-  <time datetime="2026-10-15">公開 2026-10-15</time>
+  <div class="foot"><time datetime="2026-10-15">公開 2026-10-15</time><a href="https://github.com/printemps-tokyo/probsim/releases/tag/v0.2.0" aria-label="最新リリース: v0.2.0">v0.2.0</a></div>
 </li>
 <li class="card" data-search="sl-neo rust cli cli 現代版のsl。lsを打ち間違えると、新幹線・ドクターイエロー・山手線・蒸気機関車・リニア風の列車が24bitカラーで端末を走ります。遅延情報の電光掲示板付き。">
   <h3><a href="https://github.com/printemps-tokyo/sl-neo">sl-neo</a></h3>
   <div class="meta"><span>CLI</span><span>Rust</span></div>
   <p>現代版のsl。lsを打ち間違えると、新幹線・ドクターイエロー・山手線・蒸気機関車・リニア風の列車が24bitカラーで端末を走ります。遅延情報の電光掲示板付き。</p>
-  <time datetime="2026-10-13">公開 2026-10-13</time>
+  <div class="foot"><time datetime="2026-10-13">公開 2026-10-13</time><a href="https://github.com/printemps-tokyo/sl-neo/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="asterism go cli cli 実際の星の座標から、星座と星座線をターミナルに描きます。">
   <h3><a href="https://github.com/printemps-tokyo/asterism">asterism</a></h3>
   <div class="meta"><span>CLI</span><span>Go</span></div>
   <p>実際の星の座標から、星座と星座線をターミナルに描きます。</p>
-  <time datetime="2026-07-19">公開 2026-07-19</time>
+  <div class="foot"><time datetime="2026-07-19">公開 2026-07-19</time><a href="https://github.com/printemps-tokyo/asterism/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="hexplore zig cli cli バイナリ形式を学べる注釈付き16進ダンプ。png・gif・wav・zipのマジックナンバー・チャンク長・ヘッダ項目にラベルを付けます。">
   <h3><a href="https://github.com/printemps-tokyo/hexplore">hexplore</a></h3>
   <div class="meta"><span>CLI</span><span>Zig</span></div>
   <p>バイナリ形式を学べる注釈付き16進ダンプ。PNG・GIF・WAV・ZIPのマジックナンバー・チャンク長・ヘッダ項目にラベルを付けます。</p>
-  <time datetime="2026-07-19">公開 2026-07-19</time>
+  <div class="foot"><time datetime="2026-07-19">公開 2026-07-19</time><a href="https://github.com/printemps-tokyo/hexplore/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="vim-dungeons lua neovimプラグイン neovim plugin neovimの中で遊べる、不思議のダンジョン風のローグライク。">
   <h3><a href="https://github.com/printemps-tokyo/vim-dungeons">vim-dungeons</a></h3>
   <div class="meta"><span>Neovimプラグイン</span><span>Lua</span></div>
   <p>Neovimの中で遊べる、不思議のダンジョン風のローグライク。</p>
-  <time datetime="2026-07-19">公開 2026-07-19</time>
+  <div class="foot"><time datetime="2026-07-19">公開 2026-07-19</time><a href="https://github.com/printemps-tokyo/vim-dungeons/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="econtoy rust cli cli 小さなエージェントベースの経済シミュレーター。金利とマネーサプライを動かして、インフレや好況・不況が生まれる様子を観察できます(教育用のおもちゃです)。">
   <h3><a href="https://github.com/printemps-tokyo/econtoy">econtoy</a></h3>
   <div class="meta"><span>CLI</span><span>Rust</span></div>
   <p>小さなエージェントベースの経済シミュレーター。金利とマネーサプライを動かして、インフレや好況・不況が生まれる様子を観察できます(教育用のおもちゃです)。</p>
-  <time datetime="2026-07-16">公開 2026-07-16</time>
+  <div class="foot"><time datetime="2026-07-16">公開 2026-07-16</time><a href="https://github.com/printemps-tokyo/econtoy/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="gitgroove typescript cli cli gitリポジトリの履歴をチップチューンのwavに変換します。">
   <h3><a href="https://github.com/printemps-tokyo/gitgroove">gitgroove</a></h3>
   <div class="meta"><span>CLI</span><span>TypeScript</span></div>
   <p>gitリポジトリの履歴をチップチューンのWAVに変換します。</p>
-  <time datetime="2026-07-10">公開 2026-07-10</time>
+  <div class="foot"><time datetime="2026-07-10">公開 2026-07-10</time><a href="https://github.com/printemps-tokyo/gitgroove/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 <li class="card" data-search="omikuji typescript cli cli ターミナルでおみくじを引けます。同じ日なら同じ結果になります。">
   <h3><a href="https://github.com/printemps-tokyo/omikuji">omikuji</a></h3>
   <div class="meta"><span>CLI</span><span>TypeScript</span></div>
   <p>ターミナルでおみくじを引けます。同じ日なら同じ結果になります。</p>
-  <time datetime="2026-06-24">公開 2026-06-24</time>
+  <div class="foot"><time datetime="2026-06-24">公開 2026-06-24</time><a href="https://github.com/printemps-tokyo/omikuji/releases/tag/v0.1.0" aria-label="最新リリース: v0.1.0">v0.1.0</a></div>
 </li>
 </ul>
 </section>

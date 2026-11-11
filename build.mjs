@@ -7,13 +7,18 @@
  * Usage:
  *   node build.mjs          write both pages
  *   node build.mjs --check  also compare data/repos.json with the organization's
- *                           public repositories (forks aside) on GitHub; exit 1
- *                           on a mismatch
+ *                           public repositories (forks aside) and
+ *                           data/releases.json with their latest releases on
+ *                           GitHub; exit 1 on a mismatch
+ *   node build.mjs --releases  rewrite data/releases.json from GitHub, then build
  *
- * No dependencies. Node.js >= 20.
+ * GITHUB_TOKEN, when set, is sent to the GitHub API (the release lookups are one
+ * request per repository, close to the unauthenticated limit of 60 an hour).
+ *
+ * No dependencies. Node.js >= 22.
  */
 
-import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -36,6 +41,7 @@ const TEXT = {
     shown: (n, total) => `${n} of ${total} shown`,
     none: "No project matches.",
     released: "Released",
+    latest: (v) => `Latest release: ${v}`,
     switchLabel: "日本語",
     switchHint: "このページを日本語で見る",
     org: "GitHub organization",
@@ -57,6 +63,7 @@ const TEXT = {
     shown: (n, total) => `${total}件中${n}件を表示`,
     none: "該当するプロジェクトはありません。",
     released: "公開",
+    latest: (v) => `最新リリース: ${v}`,
     switchLabel: "English",
     switchHint: "View this page in English",
     org: "GitHub組織",
@@ -90,6 +97,8 @@ function load() {
     console.error(errors.join("\n"));
     process.exit(1);
   }
+  const file = join(ROOT, "data/releases.json");
+  data.releases = existsSync(file) ? JSON.parse(readFileSync(file, "utf8")) : {};
   return data;
 }
 
@@ -158,7 +167,9 @@ li.card:hover { border-color: var(--accent); }
 .meta { display: flex; flex-wrap: wrap; gap: 6px; font-size: .75rem; color: var(--muted); }
 .meta span { background: var(--chip); padding: 1px 8px; border-radius: 999px; }
 .card p { margin: 0; font-size: .9rem; }
-.card time { margin-top: auto; font-size: .75rem; color: var(--muted); }
+.card .foot { margin-top: auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; font-size: .75rem; color: var(--muted); }
+.card .foot a { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.card .foot a:hover { color: var(--accent); }
 .empty { padding: 32px 0; color: var(--muted); }
 footer { border-top: 1px solid var(--line); padding: 20px 0 32px; font-size: .8125rem; color: var(--muted); }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
@@ -216,11 +227,15 @@ function page(lang, data, updated) {
       .map((r) => {
         const url = `https://github.com/${ORG}/${encodeURIComponent(r.name)}`;
         const search = [r.name, r.language, t.kinds[r.kind], r.kind, r[lang]].join(" ").normalize("NFKC").toLowerCase();
+        const tag = data.releases[r.name];
+        const release = tag
+          ? `<a href="${esc(`${url}/releases/tag/${encodeURIComponent(tag)}`)}" aria-label="${esc(t.latest(tag))}">${esc(tag)}</a>`
+          : "";
         return `<li class="card" data-search="${esc(search)}">
   <h3><a href="${esc(url)}">${esc(r.name)}</a></h3>
   <div class="meta"><span>${esc(t.kinds[r.kind])}</span><span>${esc(r.language)}</span></div>
   <p>${esc(r[lang])}</p>
-  <time datetime="${esc(r.released)}">${esc(t.released)} ${esc(r.released)}</time>
+  <div class="foot"><time datetime="${esc(r.released)}">${esc(t.released)} ${esc(r.released)}</time>${release}</div>
 </li>`;
       })
       .join("\n");
@@ -320,12 +335,33 @@ ${sections}
 `;
 }
 
+function api(path) {
+  const headers = { accept: "application/vnd.github+json", "user-agent": "printemps-tokyo-site-build" };
+  if (process.env.GITHUB_TOKEN) headers.authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+  return fetch(`https://api.github.com${path}`, { headers });
+}
+
+/** The latest release tag of each listed repository; repositories without one are left out. */
+async function latestReleases(data) {
+  const out = {};
+  for (const r of [...data.repos].sort((a, b) => a.name.localeCompare(b.name))) {
+    const res = await api(`/repos/${ORG}/${encodeURIComponent(r.name)}/releases/latest`);
+    if (res.status === 404) continue;
+    if (!res.ok) throw new Error(`GitHub API: HTTP ${res.status} for ${r.name}'s latest release`);
+    out[r.name] = (await res.json()).tag_name;
+  }
+  return out;
+}
+
+function releasesJson(releases) {
+  const lines = Object.entries(releases).map(([k, v]) => `  ${JSON.stringify(k)}: ${JSON.stringify(v)}`);
+  return `{\n${lines.join(",\n")}\n}\n`;
+}
+
 async function check(data) {
   const names = [];
   for (let page = 1; page <= 10; page++) {
-    const res = await fetch(`https://api.github.com/orgs/${ORG}/repos?type=public&per_page=100&page=${page}`, {
-      headers: { accept: "application/vnd.github+json", "user-agent": "printemps-tokyo-site-build" },
-    });
+    const res = await api(`/orgs/${ORG}/repos?type=public&per_page=100&page=${page}`);
     if (!res.ok) throw new Error(`GitHub API: HTTP ${res.status}`);
     const batch = await res.json();
     names.push(...batch.filter((r) => !r.fork).map((r) => r.name));
@@ -337,10 +373,20 @@ async function check(data) {
   const stale = [...listed].filter((n) => !names.includes(n));
   for (const n of missing) console.error(`missing from data/repos.json: ${n}`);
   for (const n of stale) console.error(`not a public repository: ${n}`);
-  return missing.length === 0 && stale.length === 0;
+  const live = await latestReleases(data);
+  const outdated = [...new Set([...Object.keys(live), ...Object.keys(data.releases)])]
+    .sort()
+    .filter((n) => live[n] !== data.releases[n]);
+  for (const n of outdated) console.error(`data/releases.json: ${n} is ${data.releases[n] ?? "absent"}, GitHub has ${live[n] ?? "no release"} (run --releases)`);
+  return missing.length === 0 && stale.length === 0 && outdated.length === 0;
 }
 
 const data = load();
+if (process.argv.includes("--releases")) {
+  data.releases = await latestReleases(data);
+  writeFileSync(join(ROOT, "data/releases.json"), releasesJson(data.releases));
+  console.log(`wrote data/releases.json (${Object.keys(data.releases).length} releases)`);
+}
 const updated = todayJst();
 for (const lang of ["en", "ja"]) {
   const file = join(ROOT, TEXT[lang].file);

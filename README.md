@@ -8,8 +8,10 @@ public printemps.tokyo repository with a one-line summary, in English
 
 - `data/repos.json`: the list. Each entry has a name, category, kind,
   language, release date and an English (`en`) and Japanese (`ja`) summary.
+- `data/releases.json`: the latest release tag of each repository, shown on
+  its card. Written by `node build.mjs --releases`, not by hand.
 - `build.mjs`: writes `index.html` and `ja/index.html` from the list.
-  No dependencies; Node.js >= 20.
+  No dependencies; Node.js >= 22.
 - `index.html`, `ja/index.html`: the generated pages, committed so GitHub
   Pages serves them as they are (`.nojekyll` turns off Jekyll).
 
@@ -21,6 +23,16 @@ public printemps.tokyo repository with a one-line summary, in English
    archived ones included), exiting 1 if a repository is missing or no
    longer public.
 3. Commit the data and the generated pages together.
+
+## After a release
+
+Run `GITHUB_TOKEN=... node build.mjs --releases --check` (the token is
+optional, but the release lookups are one request per repository), then
+commit `data/releases.json` with the pages.
+
+`.github/workflows/check.yml` runs `--check` weekly and on every push, so a
+new repository or release that the data does not have yet shows up as a
+failed run. It never commits anything itself.
 
 ## License
 
