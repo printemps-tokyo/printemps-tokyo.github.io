@@ -15,6 +15,12 @@ public printemps.tokyo repository with a one-line summary, in English
 - `index.html`, `ja/index.html`: the generated pages, committed so GitHub
   Pages serves them as they are (`.nojekyll` turns off Jekyll).
 
+## Analytics
+
+Both pages load the Google Analytics 4 tag (`GA_ID` in `build.mjs`) to count
+visits. The page itself sets no other cookies and loads no other third-party
+scripts.
+
 ## Adding a repository
 
 1. Add an entry to `data/repos.json`.

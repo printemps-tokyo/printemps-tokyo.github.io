@@ -26,6 +26,8 @@ const ROOT = dirname(fileURLToPath(import.meta.url));
 const ORG = "printemps-tokyo";
 const SITE = "https://printemps-tokyo.github.io";
 const HOME = "https://printemps.tokyo/";
+// Google Analytics 4 web stream for this site (property "printemps-tokyo.github.io").
+const GA_ID = "G-KER8LF9JVQ";
 
 const TEXT = {
   en: {
@@ -272,6 +274,13 @@ ${cards(c.repos)}
 <html lang="${lang}">
 <head>
 <meta charset="utf-8">
+<script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA_ID}');
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(t.title)}</title>
 <meta name="description" content="${esc(t.description)}">
